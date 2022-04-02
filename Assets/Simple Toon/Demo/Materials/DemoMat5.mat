@@ -96,7 +96,7 @@ Material:
     - _SpcTolerc: 0.05
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Steps: 2.9
+    - _Steps: 6.9
     - _StpSmooth: 0
     - _UVSec: 0
     - _ZWrite: 1
