@@ -84,7 +84,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Steps: 5.4
+    - _Steps: 6
     - _StpSmooth: 0
     - _UVSec: 0
     - _ZWrite: 1
