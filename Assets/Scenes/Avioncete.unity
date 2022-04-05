@@ -345,7 +345,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1711192733 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3442778724893107132, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3442778724893107132, guid: b1761720a03c6f74b853c67718d20c7e,
+    type: 3}
   m_PrefabInstance: {fileID: 3442778723331873057}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1906917666
@@ -477,19 +478,11 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1906917668}
-        m_TargetAssemblyTypeName: AgarrarAla, Assembly-CSharp
-        m_MethodName: cambiarAgarre
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: [{m_Target: {fileID: 1906917668}, m_TargetAssemblyTypeName: 'AgarrarAla,
+            Assembly-CSharp', m_MethodName: cambiarAgarre, m_Mode: 1, m_Arguments: {
+            m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object,
+              UnityEngine', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
+            m_BoolArgument: 0}, m_CallState: 2}]
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -692,51 +685,63 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.954
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3442778723160382431, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+    - target: {fileID: 3442778723160382431, guid: b1761720a03c6f74b853c67718d20c7e,
+        type: 3}
       propertyPath: m_Name
       value: XR Origin
       objectReference: {fileID: 0}
