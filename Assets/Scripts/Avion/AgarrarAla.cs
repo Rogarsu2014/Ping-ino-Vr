@@ -7,6 +7,7 @@ public class AgarrarAla : MonoBehaviour
 {
     public MeshRenderer[] ms;
     public Transform mano;
+    private bool agarrado = false;
     private void Start()
     {
         ms = this.GetComponentsInChildren<MeshRenderer>();
@@ -29,7 +30,27 @@ public class AgarrarAla : MonoBehaviour
     {
         XRGrabInteractable i = this.GetComponent<XRGrabInteractable>();
         Transform j = i.selectingInteractor.transform;
-        this.transform.rotation = this.transform.rotation * j.rotation;
+        //usar euler angles
+        Vector3 angles = j.rotation.eulerAngles;
+        this.transform.rotation = j.rotation;
         //this.transform.rotation = mano.rotation;
+    }
+    public void Update()
+    {
+        if(agarrado == true)
+        {
+            CambiarRot();
+        }
+    }
+
+    public void cambiarAgarre()
+    {
+        if(agarrado == false){
+            agarrado = true;
+        }
+        else
+        {
+            agarrado = false;
+        }
     }
 }
