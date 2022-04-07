@@ -6,23 +6,34 @@ using UnityEngine.InputSystem;
 public class InputMap : MonoBehaviour
 {
     Vector2 movement;
-    float rotSpeed = 5f;
-    float speed = .2f;
+
+    float speed = .1f;
+
+    public Rigidbody bala;
+    public Transform pistola;
+    public Transform camara;
     public void OnActivate()
     {
-        print("Bang");
+
+        Rigidbody clone;
+        clone = Instantiate(bala, pistola.position, pistola.rotation);
+
+        // Give the cloned object an initial velocity along the current
+        // object's Z axis
+
+        clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
     }
 
-    public void OnMove()
+    public void OnMove(InputValue input)
     {
-        print("memuevo");
+        movement = input.Get<Vector2>();
     }
-
+    
     void FixedUpdate()
     {
         var playerTransform = transform;
-        playerTransform.Rotate(Vector3.up * movement.x * rotSpeed);
-        playerTransform.Translate(Vector3.forward * movement.y * speed);
+        playerTransform.Translate(camara.right  * movement.x * speed);
+        playerTransform.Translate(camara.forward * movement.y * speed);
     }
 
 
