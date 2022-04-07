@@ -2020,6 +2020,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593161885}
   m_Mesh: {fileID: 8911429290685839654, guid: d7a4893414d539d45a3b78339bd84701, type: 3}
+--- !u!1 &1605170083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3442778723160382431, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
+  m_PrefabInstance: {fileID: 2080088304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1605170087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605170083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636c5b74e44a2d341a8613d0a2a183e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1605170088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605170083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: XRI LeftHand Locomotion
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1666351469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,7 +3263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6497732499328922215}
   m_LocalRotation: {x: -0, y: -0.7125583, z: -0, w: 0.70161295}
-  m_LocalPosition: {x: 4.64, y: 0.5000005, z: -7.56}
+  m_LocalPosition: {x: 4.64, y: -0.89, z: -7.56}
   m_LocalScale: {x: 11.084, y: 11.084, z: 11.084}
   m_Children:
   - {fileID: 6140675307657675112}
