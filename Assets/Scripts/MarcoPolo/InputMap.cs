@@ -32,8 +32,8 @@ public class InputMap : MonoBehaviour
     void FixedUpdate()
     {
         var playerTransform = transform;
-        playerTransform.Translate(camara.right  * movement.x * speed);
-        playerTransform.Translate(camara.forward * movement.y * speed);
+        playerTransform.Translate(playerTransform.right  * movement.x * speed, Space.World);
+        playerTransform.Translate(playerTransform.forward * movement.y * speed,Space.World);
     }
 
 
