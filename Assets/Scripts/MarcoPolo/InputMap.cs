@@ -12,14 +12,13 @@ public class InputMap : MonoBehaviour
     public Rigidbody bala;
     public Transform pistola;
     public Transform camara;
+    public Transform canonPosition;
     public void OnActivate()
     {
 
         Rigidbody clone;
-        clone = Instantiate(bala, pistola.position, pistola.rotation);
+        clone = Instantiate(bala, canonPosition.position , pistola.rotation);
 
-        // Give the cloned object an initial velocity along the current
-        // object's Z axis
 
         clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
     }
