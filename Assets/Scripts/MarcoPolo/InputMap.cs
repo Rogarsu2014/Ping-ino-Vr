@@ -13,14 +13,20 @@ public class InputMap : MonoBehaviour
     public Transform pistola;
     public Transform camara;
     public Transform canonPosition;
+    bool grabbed;
     public void OnActivate()
     {
 
-        Rigidbody clone;
-        clone = Instantiate(bala, canonPosition.position , pistola.rotation);
+        if (grabbed)
+        {
+            //DISPARA  
+
+            Rigidbody clone;
+            clone = Instantiate(bala, canonPosition.position, pistola.rotation);
 
 
-        clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
+            clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
+        }
     }
 
     public void OnMove(InputValue input)
@@ -34,6 +40,15 @@ public class InputMap : MonoBehaviour
         playerTransform.Translate(playerTransform.right  * movement.x * speed, Space.World);
         playerTransform.Translate(playerTransform.forward * movement.y * speed,Space.World);
     }
+    
+    public void onGrab()
+    {
+        grabbed = true;
+    }
 
+    public void onDeGrab()
+    {
+        grabbed = false;
+    }
 
 }
