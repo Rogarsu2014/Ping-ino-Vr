@@ -2428,7 +2428,7 @@ MonoBehaviour:
   bala: {fileID: 1861348922}
   pistola: {fileID: 1264946916}
   camara: {fileID: 1997820376}
-  canon: {fileID: 1234486997}
+  canonPosition: {fileID: 1234486997}
 --- !u!114 &1605170088
 MonoBehaviour:
   m_ObjectHideFlags: 0
