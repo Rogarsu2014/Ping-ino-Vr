@@ -6,10 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class AgarrarAla : MonoBehaviour
 {
     public MeshRenderer[] ms;
-    public Transform mano;
+    //public Transform mano;
+    private bool agarrado = false;
+    private Transform padre;
+    public string eje = "Z";
     private void Start()
     {
         ms = this.GetComponentsInChildren<MeshRenderer>();
+        padre = this.transform.parent;
     }
     public void SetRed()
     {
@@ -25,11 +29,48 @@ public class AgarrarAla : MonoBehaviour
             r.material.color = Color.blue;
         }
     }
-    public void CambiarRot()
+    public void CambiarRotZ()
     {
         XRGrabInteractable i = this.GetComponent<XRGrabInteractable>();
-        Transform j = i.selectingInteractor.transform;
-        this.transform.rotation = this.transform.rotation * j.rotation;
+        Transform j = i.GetOldestInteractorSelecting().transform;
+        //usar euler angles
+        Vector3 angles = j.rotation.eulerAngles;
+        this.transform.rotation = Quaternion.Euler(0, 0, angles.z);
         //this.transform.rotation = mano.rotation;
+    }
+    public void CambiarRotX()
+    {
+        XRGrabInteractable i = this.GetComponent<XRGrabInteractable>();
+        Transform j = i.GetOldestInteractorSelecting().transform;
+        //usar euler angles
+        Vector3 angles = j.rotation.eulerAngles;
+        this.transform.rotation = Quaternion.Euler(angles.x, 0, 0);
+        //this.transform.rotation = mano.rotation;
+    }
+    public void Update()
+    {
+        if(agarrado == true)
+        {
+            if (eje == "Z")
+            {
+                CambiarRotZ();
+            }else if(eje == "X")
+            {
+                CambiarRotX();
+            }
+            
+        }
+    }
+
+    public void cambiarAgarre()
+    {
+        if(agarrado == false){
+            agarrado = true;
+        }
+        else
+        {
+            agarrado = false;
+            this.transform.parent = padre;
+        }
     }
 }
