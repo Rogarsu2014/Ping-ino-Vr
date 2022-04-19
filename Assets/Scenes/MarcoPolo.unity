@@ -2428,7 +2428,7 @@ MonoBehaviour:
   bala: {fileID: 1861348922}
   pistola: {fileID: 1264946916}
   camara: {fileID: 1997820376}
-  canon: {fileID: 1234486997}
+  canonPosition: {fileID: 1234486997}
 --- !u!114 &1605170088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3174,7 +3174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861348917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.47, y: 0.64, z: 4.74}
+  m_LocalPosition: {x: -0.47, y: -1.68, z: 4.74}
   m_LocalScale: {x: 0.18757, y: 0.18757, z: 0.18757}
   m_Children: []
   m_Father: {fileID: 0}
