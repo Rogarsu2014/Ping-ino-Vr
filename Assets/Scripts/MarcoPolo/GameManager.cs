@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> dianas;
-    public 
-
+    private int points;
+    public TextMeshProUGUI textMesh;
     // Start is called before the first frame update
     void Start()
     {
-
+        points = 0;
+        textMesh.text = "0";
         foreach (var diana in dianas)
         {
             Vector3 pos = new Vector3(Random.Range(-30f, 30f), 4, Random.Range(-30f, 30f));
@@ -19,9 +21,10 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    private void OnDestroy()
+    public void addPoints()
     {
-        
+        points += 1;
+        textMesh.text = points.ToString();
     }
+ 
 }
