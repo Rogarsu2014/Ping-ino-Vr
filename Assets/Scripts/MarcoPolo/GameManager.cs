@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public void addPoints()
     {
         points += 1;
+        print(points);
+        print(points.ToString());
         textMesh.text = points.ToString();
     }
  

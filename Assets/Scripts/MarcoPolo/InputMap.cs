@@ -37,8 +37,8 @@ public class InputMap : MonoBehaviour
     void FixedUpdate()
     {
         var playerTransform = transform;
-        playerTransform.Translate(playerTransform.right  * movement.x * speed, Space.World);
-        playerTransform.Translate(playerTransform.forward * movement.y * speed,Space.World);
+        playerTransform.Translate(Vector3.Scale(camara.right,new Vector3(1,0,1)) * movement.x * speed,Space.World);
+        playerTransform.Translate(Vector3.Scale(camara.forward, new Vector3(1, 0, 1)) * movement.y * speed,Space.World);
     }
     
     public void onGrab()

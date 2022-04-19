@@ -12,8 +12,10 @@ public class DianaScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
         Destroy(collision.gameObject);
+        Destroy(this.gameObject);
+        gm.addPoints();
+        
     }
 
     private void OnDestroy()
