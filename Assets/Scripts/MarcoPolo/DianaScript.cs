@@ -13,9 +13,16 @@ public class DianaScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(collision.gameObject);
-        Destroy(this.gameObject);
+        gm.randomDianaPos(this.gameObject);
         gm.addPoints();
         
+    }
+
+
+
+    private void Awake()
+    {
+        transform.rotation= new Quaternion(Random.Range(0,180), Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)); 
     }
 
     private void OnDestroy()
