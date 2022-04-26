@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Giro : MonoBehaviour
 {
-    float rotSpeed = 35.0f;
+    float rotSpeed = 30.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,15 @@ public class Giro : MonoBehaviour
     // Cambia el sentido del giro
     public void actualizaGiro()
     {
-        if (rotSpeed < 30.0)
+        if (Mathf.Abs(rotSpeed) < 100.0)
         {
-            rotSpeed = -rotSpeed * (float)1.05;
+            rotSpeed = -rotSpeed * (float)1.2;
+            Debug.Log(rotSpeed);
         }
         else
         {
             rotSpeed = -rotSpeed;
+            Debug.Log(rotSpeed);
         }
     }
 }
