@@ -12,9 +12,9 @@ public class DianaScript : MonoBehaviour
     public AudioSource hitAudio;
 
     private void OnCollisionEnter(Collision collision)
-    {
-        Destroy(collision.gameObject);
+    {   
         gm.randomDianaPos(this.gameObject);
+        Destroy(collision.gameObject);
         gm.addPoints();
         hit();
         
