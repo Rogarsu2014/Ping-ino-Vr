@@ -4,33 +4,30 @@ using UnityEngine;
 
 public class Giro : MonoBehaviour
 {
-
-    // Random rnd = new Random();
-
-    Vector3 rotSpeed;
+    float rotSpeed = 35.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        // double a = rnd.NextDouble();
-        
-        // if (a < 0.5){
-        //     rotSpeed = new Vector3(0.0f, 0.5f, 0.0f);
-        // } else {
-            rotSpeed = new Vector3(0.0f, -0.5f, 0.0f);
-        // }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Transform>().rotation = GetComponent<Transform>().rotation + rotSpeed;
+        transform.Rotate(0, rotSpeed * Time.deltaTime, 0);
     }
 
+    // Cambia el sentido del giro
     public void actualizaGiro()
     {
-        rotSpeed = -rotSpeed;
-
-        rotSpeed = rotSpeed * 1.5;
+        if (rotSpeed < 30.0)
+        {
+            rotSpeed = -rotSpeed * (float)1.05;
+        }
+        else
+        {
+            rotSpeed = -rotSpeed;
+        }
     }
 }
