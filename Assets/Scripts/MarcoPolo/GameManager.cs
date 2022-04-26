@@ -5,6 +5,7 @@ using TMPro;
  
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
     public List<GameObject> dianas;
     private int points;
     public TextMeshProUGUI textMesh;
@@ -34,5 +35,18 @@ public class GameManager : MonoBehaviour
         print(points.ToString());
         textMesh.text = points.ToString();
     }
- 
+
+    private void FixedUpdate()
+    {
+        foreach(var d in dianas)
+        {
+            lookAtPlayer(d, player.transform);
+        }
+    }
+
+    private void lookAtPlayer(GameObject diana, Transform t)
+    {
+        Quaternion _lookRotation = Quaternion.LookRotation((t.position - diana.transform.position).normalized);
+        diana.transform.rotation = _lookRotation;
+    }
 }

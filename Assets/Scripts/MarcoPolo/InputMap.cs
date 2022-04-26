@@ -25,7 +25,7 @@ public class InputMap : MonoBehaviour
             clone = Instantiate(bala, canonPosition.position, pistola.rotation);
 
 
-            clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
+            clone.velocity = pistola.TransformDirection(Vector3.forward * 50);
         }
     }
 

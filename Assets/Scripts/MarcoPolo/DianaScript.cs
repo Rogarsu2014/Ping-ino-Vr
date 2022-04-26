@@ -9,20 +9,20 @@ public class DianaScript : MonoBehaviour
 
     // Start is called before the first frame update
     public GameManager gm;
+    public AudioSource hitAudio;
 
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(collision.gameObject);
         gm.randomDianaPos(this.gameObject);
         gm.addPoints();
+        hit();
         
     }
 
-
-
-    private void Awake()
+    public void hit()
     {
-        transform.rotation= new Quaternion(Random.Range(0,180), Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)); 
+        hitAudio.Play();
     }
 
     private void OnDestroy()
@@ -30,4 +30,5 @@ public class DianaScript : MonoBehaviour
 
         print("adios");
     }
+
 }
