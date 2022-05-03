@@ -230,6 +230,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6415741824579310120, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
+      propertyPath: m_TagString
+      value: Pico
+      objectReference: {fileID: 0}
     - target: {fileID: 6415741825303599073, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
       propertyPath: m_Name
       value: Avioneta
