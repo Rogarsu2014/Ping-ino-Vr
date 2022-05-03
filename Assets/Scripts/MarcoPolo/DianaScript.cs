@@ -14,7 +14,7 @@ public class DianaScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {   
         gm.randomDianaPos(this.gameObject);
-        Destroy(collision.gameObject);
+        collision.gameObject.transform.position = new Vector3(1000, 1000, 1000);
         gm.addPoints();
         hit();
         

@@ -32,7 +32,7 @@ Material:
     - _MaxLight: 1
     - _MinLight: 0
     - _Offset: 0
-    - _OtlWidth: 1
+    - _OtlWidth: 5
     - _Segmented: 1
     - _ShnIntense: 0
     - _ShnOverlap: 0

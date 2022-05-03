@@ -9,8 +9,9 @@ public class InputMap : MonoBehaviour
 
     float speed = .05f;
 
-    public Rigidbody bala;
-    public Rigidbody cartucho;
+    public List <Rigidbody> bala;
+    private int disparos = 0;
+    public List <Rigidbody> cartucho;
     private Transform pistola;
     public Transform camara;
     private Transform canonPosition;
@@ -62,12 +63,13 @@ public class InputMap : MonoBehaviour
     {
         if(pistola.name == "Shotgun")
         {
-            Rigidbody clone;
             float maxSpread = 0.1f;
-            for (int i = 0; i < 7; i++)
+            foreach (Rigidbody clone in cartucho)
             {
                 Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
-                clone = Instantiate(cartucho, canonPosition.position, pistola.rotation);
+                //clone = Instantiate(cartucho, canonPosition.position, pistola.rotation
+                clone.MovePosition(canonPosition.position);
+                clone.rotation = pistola.rotation;
                 clone.velocity = pistola.TransformDirection(dir* 30);
 
                 //clone.GetComponent<Rigidbody>().AddForce(dir * 500);
@@ -77,9 +79,15 @@ public class InputMap : MonoBehaviour
         }
         else if(pistola.name == "Revolver")
         {
-            Rigidbody clone;
-            clone = Instantiate(bala, canonPosition.position, pistola.rotation);
-            clone.velocity = pistola.TransformDirection(Vector3.forward * 50);
+            Rigidbody clone = bala[disparos];
+            clone.MovePosition(canonPosition.position);
+            clone.rotation = pistola.rotation;
+            clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
+            disparos++;
+            if(disparos >= bala.Count)
+            {
+                disparos = 0;
+            }
         }
     }
 }
