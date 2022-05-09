@@ -7,12 +7,14 @@ public class InputMap : MonoBehaviour
 {
     Vector2 movement;
 
-    float speed = .1f;
+    float speed = .05f;
 
-    public Rigidbody bala;
-    public Transform pistola;
+    public List <Rigidbody> bala;
+    private int disparos = 0;
+    public List <Rigidbody> cartucho;
+    private Transform pistola;
     public Transform camara;
-    public Transform canonPosition;
+    private Transform canonPosition;
     bool grabbed;
     public void OnActivate()
     {
@@ -20,13 +22,19 @@ public class InputMap : MonoBehaviour
         if (grabbed)
         {
             //DISPARA  
-
-            Rigidbody clone;
-            clone = Instantiate(bala, canonPosition.position, pistola.rotation);
-
-
-            clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
+            disparo();
+            
         }
+    }
+
+    public void setPistola(Transform t)
+    {
+        pistola = t;
+    }
+
+    public void setCanon(Transform t)
+    {
+        canonPosition = t;
     }
 
     public void OnMove(InputValue input)
@@ -34,7 +42,7 @@ public class InputMap : MonoBehaviour
         movement = input.Get<Vector2>();
     }
     
-    void FixedUpdate()
+    void Update()
     {
         var playerTransform = transform;
         playerTransform.Translate(Vector3.Scale(camara.right,new Vector3(1,0,1)) * movement.x * speed,Space.World);
@@ -51,4 +59,35 @@ public class InputMap : MonoBehaviour
         grabbed = false;
     }
 
+    public void disparo()
+    {
+        if(pistola.name == "Shotgun")
+        {
+            float maxSpread = 0.1f;
+            foreach (Rigidbody clone in cartucho)
+            {
+                Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
+                //clone = Instantiate(cartucho, canonPosition.position, pistola.rotation
+                clone.MovePosition(canonPosition.position);
+                clone.rotation = pistola.rotation;
+                clone.velocity = pistola.TransformDirection(dir* 30);
+
+                //clone.GetComponent<Rigidbody>().AddForce(dir * 500);
+            }
+            
+
+        }
+        else if(pistola.name == "Revolver")
+        {
+            Rigidbody clone = bala[disparos];
+            clone.MovePosition(canonPosition.position);
+            clone.rotation = pistola.rotation;
+            clone.velocity = pistola.TransformDirection(Vector3.forward * 30);
+            disparos++;
+            if(disparos >= bala.Count)
+            {
+                disparos = 0;
+            }
+        }
+    }
 }
