@@ -36,22 +36,19 @@ public class AvionGameLogic : MonoBehaviour
             {
                 restoTiempo -= Time.deltaTime;
                 MostrarTiempo(restoTiempo);
-
-                //Cambiar el tamaño del jugador
-                player.transform.localScale -= new Vector3(0.03f, 0.03f, 0.03f);
             }
             else
             {
                 //Llamar a metodo cambiar de fase
                 CambioFase();
-                //cambiarPos();
+                cambiarPos();
 
                 restoTiempo = 0;//U otro valor si queremos resetear el timer
                 sigueContando = false;
             }
         }else if (fase2)
         {
-            //ActualizarPosicionesJugadores();
+            ActualizarPosicionesJugadores();
         }
     }
 
@@ -80,7 +77,13 @@ public class AvionGameLogic : MonoBehaviour
             }
 
             //Cambiar las posiciones a lo alto
-            avion.transform.position = new Vector3(30*i, 200, 0);
+            avion.transform.position = new Vector3(30*i, 1000, 0);
+            avion.transform.rotation = Quaternion.Euler(0,180,0);
+
+            //avion.transform.localScale += new Vector3(3f, 3f, 3f);
+
+            avion.GetComponent<Rigidbody>().useGravity = true;
+            avion.GetComponent<AircraftPhysics>().enabled = true;
 
 
             //Poner al jugador donde el avion
@@ -103,21 +106,22 @@ public class AvionGameLogic : MonoBehaviour
         //pos.y -= player.CameraYOffset;
         player.transform.position = pos;
 
+        /*
         //Cambiar la rotacion del jugador
         Vector3 rot = avion1.transform.rotation.eulerAngles;
         rot = new Vector3(rot.x, rot.y + 180, rot.z);
         player.transform.rotation = Quaternion.Euler(rot);
+        */
 
-        //Cambiar el tamaño del jugador
-        player.transform.localScale -= new Vector3(0.03f, 0.03f, 0.03f);
     }
 
     private void cambiarPos()
     {
+        /*
         player.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
         player.transform.rotation = Quaternion.Euler(0, 180, 0);
         player.transform.position = GameObject.FindGameObjectWithTag("Pico").transform.position;
-
+        */
         //Cambiar el tamaño del avión para que sea más grande
 
         //Para Fase 2 poner un Canvas dentro del XR Origin y ponerlo en screen space - camera con la distancia que llevas en directo
