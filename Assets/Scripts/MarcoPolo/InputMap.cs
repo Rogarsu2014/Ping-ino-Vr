@@ -16,6 +16,7 @@ public class InputMap : MonoBehaviour
     public Transform camara;
     private Transform canonPosition;
     bool grabbed;
+    bool readyToShoot=true;
     public void OnActivate()
     {
 
@@ -59,9 +60,14 @@ public class InputMap : MonoBehaviour
         grabbed = false;
     }
 
+    public void ReadyToShoot()
+    {
+        readyToShoot = true;
+    }
+
     public void disparo()
     {
-        if(pistola.name == "Shotgun")
+        if(pistola.name == "Shotgun" && readyToShoot)
         {
             float maxSpread = 0.1f;
             foreach (Rigidbody clone in cartucho)
@@ -73,6 +79,7 @@ public class InputMap : MonoBehaviour
                 clone.velocity = pistola.TransformDirection(dir* 30);
 
                 //clone.GetComponent<Rigidbody>().AddForce(dir * 500);
+                readyToShoot=false;
             }
             
 
