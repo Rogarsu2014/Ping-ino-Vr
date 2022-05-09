@@ -17,7 +17,8 @@ public class ClampPosition : MonoBehaviour
             Transform j = i.GetOldestInteractorSelecting().transform;
 
             Vector3 pos = j.localPosition;
-            this.transform.Translate(new Vector3(0, 0, pos.z-transform.localPosition.z), Space.Self);
+            var posicionCalculada = pos.z - transform.localPosition.z;
+            this.transform.Translate(new Vector3(0, 0, posicionCalculada), Space.Self);
 
 
         }

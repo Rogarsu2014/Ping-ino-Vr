@@ -27,8 +27,6 @@ public class DianaScript : MonoBehaviour
 
     private void OnDestroy()
     {
-
-        print("adios");
     }
 
 }
