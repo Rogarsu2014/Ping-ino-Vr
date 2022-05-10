@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public List<GameObject> dianas;
     private int points;
-    public TextMeshProUGUI textMesh;
+    public TextMeshProUGUI textMeshPuntos;
+    public TextMeshProUGUI textMeshTiempo;
+    float tiempoResto = 60f;
+
     // Start is called before the first frame update
     void Start()
     {
         points = 0;
-        textMesh.text = "0";
+        textMeshPuntos.text = "0";
         foreach (var diana in dianas)
         {
             randomDianaPos(diana);
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
         points += 1;
         print(points);
         print(points.ToString());
-        textMesh.text = points.ToString();
+        textMeshPuntos.text = points.ToString();
     }
 
     private void FixedUpdate()
@@ -42,6 +45,11 @@ public class GameManager : MonoBehaviour
         {
             lookAtPlayer(d, player.transform);
         }
+        tiempoResto -= Time.deltaTime;
+        tiempoResto += 1;
+        float minutos = Mathf.FloorToInt(tiempoResto / 60);
+        float segundos = Mathf.FloorToInt(tiempoResto % 60);
+        textMeshTiempo.text = string.Format("{0:00}:{1:00}", minutos, segundos);
     }
 
     private void lookAtPlayer(GameObject diana, Transform t)
