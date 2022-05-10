@@ -62,6 +62,7 @@ public class InputMap : MonoBehaviour
 
     public void ReadyToShoot()
     {
+        print("eeee");
         readyToShoot = true;
     }
 
