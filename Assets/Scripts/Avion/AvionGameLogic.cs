@@ -20,6 +20,12 @@ public class AvionGameLogic : MonoBehaviour
     private GameObject avion1;
 
     //public GameObject player;
+    private GameObject manoI;
+    private GameObject manoD;
+
+    private GameObject ad1p;
+    private GameObject ai1p;
+
 
 
     private void Start()
@@ -40,11 +46,12 @@ public class AvionGameLogic : MonoBehaviour
             else
             {
                 //Llamar a metodo cambiar de fase
-                CambioFase();
+                sigueContando = false;
                 cambiarPos();
+                CambioFase();
 
                 restoTiempo = 0;//U otro valor si queremos resetear el timer
-                sigueContando = false;
+
             }
         }else if (fase2)
         {
@@ -77,7 +84,7 @@ public class AvionGameLogic : MonoBehaviour
             }
 
             //Cambiar las posiciones a lo alto
-            avion.transform.position = new Vector3(30*i, 1000, 0);
+            avion.transform.position = new Vector3(30*i, 2000, 0);
             avion.transform.rotation = Quaternion.Euler(0,180,0);
 
             //avion.transform.localScale += new Vector3(3f, 3f, 3f);
@@ -90,6 +97,8 @@ public class AvionGameLogic : MonoBehaviour
             //Habrá que cambiarlo para el multijugador (tanto esto como la asignacion del avion al personaje)
             //player.Origin = avion; //Esto no funciona
             avion1 = avion;
+            ad1p = avion1.GetNamedChild("AD1Pivot");
+            ai1p = avion1.GetNamedChild("AI1Pivot");
 
             //Cambiamos i
             i += 1;
@@ -97,42 +106,53 @@ public class AvionGameLogic : MonoBehaviour
 
         //Pasar a la fase 2
         fase2 = true;
+        manoI.SetActive(true);
+        manoD.SetActive(true);
     }
 
     private void ActualizarPosicionesJugadores()
     {
         //Poner al jugador donde esta el avion (en la punta)
         Vector3 pos = avion1.GetNamedChild("PicoPivot").transform.position;
-        //pos.y -= player.CameraYOffset;
+        //pos.y -= player.GetNamedChild("Main Camera").transform.position.y + 1f;
         player.transform.position = pos;
 
-        /*
-        //Cambiar la rotacion del jugador
-        Vector3 rot = avion1.transform.rotation.eulerAngles;
-        rot = new Vector3(rot.x, rot.y + 180, rot.z);
-        player.transform.rotation = Quaternion.Euler(rot);
-        */
+        //Cambiar la rotacion del ala
+
+        Vector3 rot = ad1p.transform.localRotation.eulerAngles;
+        float manoDZ = manoD.transform.rotation.eulerAngles.z;
+        rot = new Vector3(rot.x, rot.y, manoDZ);
+        ad1p.transform.localRotation = Quaternion.Euler(rot);
+
+
+        Vector3 rot2 = ai1p.transform.localRotation.eulerAngles;
+        float manoIZ = manoI.transform.rotation.eulerAngles.z;
+        rot = new Vector3(rot.x, rot.y, manoIZ);
+        ai1p.transform.localRotation = Quaternion.Euler(rot);
 
     }
 
     private void cambiarPos()
     {
-        /*
-        player.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
-        player.transform.rotation = Quaternion.Euler(0, 180, 0);
-        player.transform.position = GameObject.FindGameObjectWithTag("Pico").transform.position;
-        */
+        
+        //player.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
+        //player.transform.rotation = Quaternion.Euler(0, 180, 0);
+        //player.transform.position = GameObject.FindGameObjectWithTag("Pico").transform.position;
+
         //Cambiar el tamaño del avión para que sea más grande
 
         //Para Fase 2 poner un Canvas dentro del XR Origin y ponerlo en screen space - camera con la distancia que llevas en directo
 
-        GameObject manoI = player.GetNamedChild("LeftHand Controller");
-        GameObject manoD = player.GetNamedChild("RightHand Controller");
+        manoI = player.GetNamedChild("LeftHand Controller");
+        manoD = player.GetNamedChild("RightHand Controller");
+
 
         manoI.SetActive(false);
         manoD.SetActive(false);
 
-        GameObject ca = GameObject.FindGameObjectWithTag("MainCamera");
+
+
+        //GameObject ca = GameObject.FindGameObjectWithTag("MainCamera");
         //teamca.GetComponent<>
 
     }

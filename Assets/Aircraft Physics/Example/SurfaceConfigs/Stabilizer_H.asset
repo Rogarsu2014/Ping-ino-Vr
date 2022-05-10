@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Stabilizer_H
   m_EditorClassIdentifier: 
   liftSlope: 6.28
-  skinFriction: 0.02
+  skinFriction: 1
   zeroLiftAoA: -1.53
   stallAngleHigh: 15
   stallAngleLow: -15
-  chord: 1
-  flapFraction: 0.4
-  span: 1.63
+  chord: 0.7
+  flapFraction: 0
+  span: 0.34
   autoAspectRatio: 1
-  aspectRatio: 1.63
+  aspectRatio: 0.4857143

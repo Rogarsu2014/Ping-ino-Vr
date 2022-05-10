@@ -443,7 +443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171970073016939133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.124, y: -0.039968133, z: -0.0032894614}
+  m_LocalPosition: {x: 0.047, y: -0.039968133, z: -0.0032894614}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 7356031143610718366}
@@ -851,6 +851,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: bdfe588cd6bf1b24e8f9548486e08969, type: 2}
+  IsControlSurface: 0
+  InputType: 0
+  InputMultiplyer: 1
+--- !u!1 &5606774253029109356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5695633587682713672}
+  - component: {fileID: 5916647793839670628}
+  m_Layer: 0
+  m_Name: Estabilizador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5695633587682713672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606774253029109356}
+  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: 0.08, y: 0, z: 0.275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6415741825303599078}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
+--- !u!114 &5916647793839670628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606774253029109356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3872f9b6e0a784d865994b3c070640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: beabc62521ee5b44bb804213867f93bc, type: 2}
   IsControlSurface: 0
   InputType: 0
   InputMultiplyer: 1
@@ -1502,6 +1549,7 @@ Transform:
   m_Children:
   - {fileID: 5296874734404631861}
   - {fileID: 7356031143610718366}
+  - {fileID: 5695633587682713672}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1545,6 +1593,7 @@ MonoBehaviour:
   - {fileID: 3877720575559033003}
   - {fileID: 5133237658715797423}
   - {fileID: 1514757151125417702}
+  - {fileID: 5916647793839670628}
 --- !u!1 &6415741825375281064
 GameObject:
   m_ObjectHideFlags: 0
