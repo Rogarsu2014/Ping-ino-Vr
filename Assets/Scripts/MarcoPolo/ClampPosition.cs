@@ -31,7 +31,7 @@ public class ClampPosition : MonoBehaviour
             Vector3 pos = j.position;
             float posicion = pos.z - transform.localPosition.z;
 
-            if ((topeMax&&posicion<0)||(topeMin&&posicion>0))
+            if ((topeMax&&posicion>0)||(topeMin&&posicion<0))
             {
                 transform.Translate(new Vector3(0, 0, 0), Space.Self);
             }
