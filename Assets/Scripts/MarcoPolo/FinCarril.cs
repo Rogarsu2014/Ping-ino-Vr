@@ -9,7 +9,6 @@ public class FinCarril : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("ey");
         _recargar.Invoke();
     }
 
