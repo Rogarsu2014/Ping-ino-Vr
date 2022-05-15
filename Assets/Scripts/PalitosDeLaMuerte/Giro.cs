@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Giro : MonoBehaviour
 {
-    float rotSpeed = 30.0f;
+    int[] velocidades = new int[] {30, 44, 58, 72, 86, 100};
+
+    int rotSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rotSpeed = velocidades[(int)Random.Range(0.0f, 5.0f)];
     }
 
     // Update is called once per frame
@@ -21,15 +23,32 @@ public class Giro : MonoBehaviour
     // Cambia el sentido del giro
     public void actualizaGiro()
     {
-        if (Mathf.Abs(rotSpeed) < 100.0)
-        {
-            rotSpeed = -rotSpeed * (float)1.2;
-            Debug.Log(rotSpeed);
-        }
-        else
-        {
-            rotSpeed = -rotSpeed;
-            Debug.Log(rotSpeed);
+        int nuevaVelocidad = velocidades[(int)Random.Range(0.0f, 5.0f)];
+
+        if(rotSpeed > 0) {
+
+            nuevaVelocidad = -nuevaVelocidad;
+            rotSpeed = nuevaVelocidad;
+
+        } else {
+
+            rotSpeed = nuevaVelocidad;
+
         }
     }
 }
+
+
+// public void actualizaGiro()
+//     {
+//         if (Mathf.Abs(rotSpeed) < 100.0)
+//         {
+//             rotSpeed = -rotSpeed * (float)1.2;
+//             //Debug.Log(rotSpeed);
+//         }
+//         else
+//         {
+//             rotSpeed = -rotSpeed;
+//             //Debug.Log(rotSpeed);
+//         }
+//     }
