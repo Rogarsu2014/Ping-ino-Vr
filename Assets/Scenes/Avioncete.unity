@@ -262,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 7555}
+  m_AnchoredPosition: {x: 0, y: 9583}
   m_SizeDelta: {x: 671.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476291228
@@ -286,7 +286,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "En la siguiente fase se pueden controlar las alas del avi\xF3n girando
-    los mandos.\nEl objetivo es llegar lo m\xE1s lejos posible."
+    los mandos.\nEl objetivo es llegar lo m\xE1s lejos posible.\n\nAdem\xE1s el gatillo
+    derecho inclinar\xE1 hacia delante el pico del avi\xF3n, y el izquierdo lo har\xE1
+    hacia detr\xE1s."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -493,6 +495,8 @@ MonoBehaviour:
   - {fileID: 3598187106015277309}
   - {fileID: 2215389}
   - {fileID: 1197026834}
+  triggerD: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  triggerI: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &650724531
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using System.IO;
+using UnityEngine.InputSystem;
 
 public class AvionGameLogic : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public class AvionGameLogic : MonoBehaviour
     private GameObject ai1p;
 
     public GameObject[] escena;
-
+    [SerializeField] InputActionReference triggerD;
+    [SerializeField] InputActionReference triggerI;
 
 
     private void Start()
@@ -61,7 +63,7 @@ public class AvionGameLogic : MonoBehaviour
 
                 textoTutorial.gameObject.SetActive(true);
 
-                restoTiempo = 15;//U otro valor si queremos resetear el timer
+                restoTiempo = 20;//U otro valor si queremos resetear el timer
 
             }
         }else if (cambioDeFase)
@@ -87,6 +89,14 @@ public class AvionGameLogic : MonoBehaviour
             if (noChocado)
             {
                 ActualizarDistancias();
+                if (triggerD.action.IsPressed() && !triggerI.action.IsPressed())
+                {
+                    giroPicoDerecha(triggerD.action.ReadValue<float>());
+                }
+                else if (!triggerD.action.IsPressed() && triggerI.action.IsPressed())
+                {
+                    giroPicoIzquierda(triggerI.action.ReadValue<float>());
+                }
             }
             else
             {
@@ -244,5 +254,29 @@ public class AvionGameLogic : MonoBehaviour
         {
             g.SetActive(false);
         }
+    }
+
+    private void giroPicoDerecha(float f)
+    {
+        Vector3 rot = avion1.GetNamedChild("PicoPivot").transform.localRotation.eulerAngles;
+        float prevRot = rot.x;
+        rot.x += f;
+        if(prevRot <= 90f && rot.x > 90f)
+        {
+            rot.x = 90f;
+        }
+        avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot);
+    }
+
+    private void giroPicoIzquierda(float f)
+    {
+        Vector3 rot = avion1.GetNamedChild("PicoPivot").transform.localRotation.eulerAngles;
+        float prevRot = rot.x;
+        rot.x -= f;
+        if (prevRot >= 270f && rot.x < 270f)
+        {
+            rot.x = 270f;
+        }
+        avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot);
     }
 }
