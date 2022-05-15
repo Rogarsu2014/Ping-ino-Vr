@@ -41,6 +41,8 @@ public class AvionGameLogic : MonoBehaviour
 
     public GameObject cubo;
 
+    private bool final = false;
+
 
     private void Start()
     {
@@ -63,12 +65,15 @@ public class AvionGameLogic : MonoBehaviour
                 sigueContando = false;
                 cambiarPos();
 
+                escena[4].gameObject.SetActive(false);
+
                 textoTutorial.gameObject.SetActive(true);
 
                 restoTiempo = 20;//U otro valor si queremos resetear el timer
 
             }
-        }else if (cambioDeFase)
+        }
+        else if (cambioDeFase)
         {
             if (restoTiempo > 0)
             {
@@ -80,7 +85,7 @@ public class AvionGameLogic : MonoBehaviour
             {
                 cambioDeFase = false;
                 CambioFase();
-                restoTiempo = 0;
+                restoTiempo = 10;
                 DesactivarTodo();
                 distancia.gameObject.SetActive(true);
             }
@@ -104,6 +109,18 @@ public class AvionGameLogic : MonoBehaviour
             {
                 fase2 = false;
                 TerminarFase2();
+            }
+        }
+        else if (final)
+        {
+            if (restoTiempo > 0)
+            {
+                restoTiempo -= Time.deltaTime;
+                MostrarTiempo(restoTiempo);
+            }
+            else
+            {
+                //Volver a escena del menu
             }
         }
     }
@@ -248,6 +265,7 @@ public class AvionGameLogic : MonoBehaviour
         }
 
         //Despues de 10 segundos volver al menu principal
+        final = true;
     }
 
     private void DesactivarTodo()

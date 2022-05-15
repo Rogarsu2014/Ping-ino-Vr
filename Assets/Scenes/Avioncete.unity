@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a6c536da92df646b58a370bfb18931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restoTiempo: 30
+  restoTiempo: 60
   tiempo: {fileID: 1107148517}
   textoTutorial: {fileID: 1197026837}
   distancia: {fileID: 997354714}
