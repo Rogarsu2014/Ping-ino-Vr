@@ -39,6 +39,8 @@ public class AvionGameLogic : MonoBehaviour
     [SerializeField] InputActionReference triggerD;
     [SerializeField] InputActionReference triggerI;
 
+    public GameObject cubo;
+
 
     private void Start()
     {
@@ -278,5 +280,11 @@ public class AvionGameLogic : MonoBehaviour
             rot.x = 270f;
         }
         avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot);
+    }
+
+    public void CeroTiempo()
+    {
+        restoTiempo = 0;
+        cubo.gameObject.SetActive(false);
     }
 }
