@@ -5,13 +5,21 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
+using System.IO;
 
 public class AvionGameLogic : MonoBehaviour
 {
     public float restoTiempo = 30;
     private bool sigueContando = false;
-    //public Text tiempo;
+    private bool cambioDeFase = true;
+    private bool noChocado = true;
+
     public TextMeshProUGUI tiempo;
+    public Canvas textoTutorial;
+    public TextMeshProUGUI distancia;
+    public TextMeshProUGUI newRecord;
+    public TextMeshProUGUI puntos;
+
     private GameObject[] aviones;
     
     //Movimiento del jugador
@@ -25,6 +33,8 @@ public class AvionGameLogic : MonoBehaviour
 
     private GameObject ad1p;
     private GameObject ai1p;
+
+    public GameObject[] escena;
 
 
 
@@ -48,14 +58,41 @@ public class AvionGameLogic : MonoBehaviour
                 //Llamar a metodo cambiar de fase
                 sigueContando = false;
                 cambiarPos();
-                CambioFase();
 
-                restoTiempo = 0;//U otro valor si queremos resetear el timer
+                textoTutorial.gameObject.SetActive(true);
+
+                restoTiempo = 15;//U otro valor si queremos resetear el timer
 
             }
-        }else if (fase2)
+        }else if (cambioDeFase)
+        {
+            if (restoTiempo > 0)
+            {
+                restoTiempo -= Time.deltaTime;
+                MostrarTiempo(restoTiempo);
+                //Animacion tutorial
+            }
+            else
+            {
+                cambioDeFase = false;
+                CambioFase();
+                restoTiempo = 0;
+                DesactivarTodo();
+                distancia.gameObject.SetActive(true);
+            }
+        }
+        else if (fase2)
         {
             ActualizarPosicionesJugadores();
+            if (noChocado)
+            {
+                ActualizarDistancias();
+            }
+            else
+            {
+                fase2 = false;
+                TerminarFase2();
+            }
         }
     }
 
@@ -114,22 +151,33 @@ public class AvionGameLogic : MonoBehaviour
     {
         //Poner al jugador donde esta el avion (en la punta)
         Vector3 pos = avion1.GetNamedChild("PicoPivot").transform.position;
-        //pos.y -= player.GetNamedChild("Main Camera").transform.position.y + 1f;
+        pos.y -= 1f;
+        pos.z -= 0.5f;
         player.transform.position = pos;
 
         //Cambiar la rotacion del ala
 
         Vector3 rot = ad1p.transform.localRotation.eulerAngles;
         float manoDZ = manoD.transform.rotation.eulerAngles.z;
-        rot = new Vector3(rot.x, rot.y, manoDZ);
+        rot = new Vector3(rot.x, rot.y, -manoDZ);
         ad1p.transform.localRotation = Quaternion.Euler(rot);
 
 
         Vector3 rot2 = ai1p.transform.localRotation.eulerAngles;
         float manoIZ = manoI.transform.rotation.eulerAngles.z;
-        rot = new Vector3(rot.x, rot.y, manoIZ);
+        rot = new Vector3(rot.x, rot.y, -manoIZ);
         ai1p.transform.localRotation = Quaternion.Euler(rot);
 
+    }
+
+    private void ActualizarDistancias()
+    {
+        distancia.text = ((int)player.transform.position.z).ToString();
+    }
+
+    private void CheckColision()
+    {
+        noChocado = false;
     }
 
     private void cambiarPos()
@@ -150,7 +198,8 @@ public class AvionGameLogic : MonoBehaviour
         manoI.SetActive(false);
         manoD.SetActive(false);
 
-
+        escena[0].gameObject.SetActive(true);
+        escena[1].gameObject.SetActive(true);
 
         //GameObject ca = GameObject.FindGameObjectWithTag("MainCamera");
         //teamca.GetComponent<>
@@ -159,12 +208,41 @@ public class AvionGameLogic : MonoBehaviour
 
     private void TerminarFase2()
     {
-        //Cuando y <= 0 o el avion se choque contra el mesh del escenario
-
         //Deten el avion == desactivar todo lo del vuelo
+        avion1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        avion1 .GetComponent<AircraftPhysics>().enabled = false;
 
         //Calcular la distancia desde el origen (en línea recta desde el suelo) (resta de x)
+        int puntuacion1;
+        puntuacion1 = int.Parse(distancia.text);
 
         //Guardar esa puntuación y mostrarla por pantalla (nuevo record o no)
+        StreamReader read = new StreamReader("MaxScoreAvion.txt");
+        int maxScore = int.Parse(read.ReadLine());
+        read.Close();
+
+        distancia.gameObject.SetActive(false);
+
+        puntos.text = "Puntuación: " + puntuacion1.ToString();
+        puntos.gameObject.SetActive(true);
+
+
+        if(puntuacion1 > maxScore)
+        {
+            newRecord.gameObject.SetActive(true);
+            StreamWriter write = new StreamWriter("MaxScoreAvion.txt", false);
+            write.WriteLine(puntuacion1);
+            write.Close();
+        }
+
+        //Despues de 10 segundos volver al menu principal
+    }
+
+    private void DesactivarTodo()
+    {
+        foreach(GameObject g in escena)
+        {
+            g.SetActive(false);
+        }
     }
 }
