@@ -12,7 +12,7 @@ public class DianaScript : MonoBehaviour
     public GameManager gm;
     public AudioSource hitAudio;
     public PathCreator path;
-    float speed = 5f;
+    float speed = 3f;
     float distanceTravelled;
 
     private void OnCollisionEnter(Collision collision)
