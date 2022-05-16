@@ -24,7 +24,7 @@ public class Note : MonoBehaviour
         }
         else
         {
-            Debug.Log("Matame");
+            transform.localPosition = Vector3.Lerp(Vector3.up*SongManager.Instance.spawnX,Vector3.up*SongManager.Instance.despawnX, t);
         }
     }
 }

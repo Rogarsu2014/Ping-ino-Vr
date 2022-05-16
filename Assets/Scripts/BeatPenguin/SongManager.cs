@@ -10,6 +10,7 @@ public class SongManager : MonoBehaviour
 {
     public static SongManager Instance;
     public AudioSource audioSource;
+    public Lane[] lanes;
     public float songDelayInSeconds;
     public double marginOfError;//seconds
 
@@ -19,10 +20,10 @@ public class SongManager : MonoBehaviour
     public string fileLocation= "";
     public float noteTime;
     public float spawnY, spawnX, spawnZ; //donde spawneaen 3D
-    public float hitZ; //franja de colision (probablemente no haga falta)
-    public float despawnZ // zona en z donde devolvemos al pool
+    public float hitX; //franja de colision (probablemente no haga falta)
+    public float despawnX // zona en z donde devolvemos al pool
     {
-        get { return hitZ - (spawnZ - hitZ); }
+        get { return hitX - (spawnX - hitX); }
     }
 
     public static MidiFile midiFile;
@@ -46,6 +47,8 @@ public class SongManager : MonoBehaviour
         var notes = midiFile.GetNotes();
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);
+
+        foreach(var lane in lanes) lane.SetTimeStamps(array);
 
         Invoke(nameof(StartSong), songDelayInSeconds);
     }
