@@ -202,12 +202,12 @@ public class AvionGameLogic : MonoBehaviour
         distancia.text = ((int)player.transform.position.z).ToString();
     }
 
-    private void CheckColision() //Comprobar que
+    private void CheckColision() //Función que se llama desde ColisionAvioneta.cs para indicar que el avión se ha chocado
     {
         noChocado = false;
     }
 
-    private void interludio()
+    private void interludio() //Entramos en la fase 1.5
     {
         manoI = player.GetNamedChild("LeftHand Controller");
         manoD = player.GetNamedChild("RightHand Controller");
