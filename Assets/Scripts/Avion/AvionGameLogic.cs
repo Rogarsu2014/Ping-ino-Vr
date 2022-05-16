@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using System.IO;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class AvionGameLogic : MonoBehaviour
 {
@@ -121,7 +120,7 @@ public class AvionGameLogic : MonoBehaviour
             }
             else
             {
-                //Volver a escena del menu
+                StartCoroutine(LoadYourAsyncScene());
             }
         }
     }
@@ -305,5 +304,16 @@ public class AvionGameLogic : MonoBehaviour
     {
         restoTiempo = 0;
         cubo.gameObject.SetActive(false);
+    }
+
+    private IEnumerator LoadYourAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
