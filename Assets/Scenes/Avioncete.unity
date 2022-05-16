@@ -937,7 +937,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d0188a68f471bef46bae5b28680bd9e3, type: 2}
+  - {fileID: 2100000, guid: 7803c3407240ac24ab61a30413191819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1976,24 +1976,6 @@ RectTransform:
   m_AnchoredPosition: {x: 66.4, y: 884.87}
   m_SizeDelta: {x: 539, y: 553}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1222530254 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6415741825303599073, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
-  m_PrefabInstance: {fileID: 6415741825994274290}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1222530255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222530254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16915ad3819a5848a8fa0c387c1557b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 640906897}
 --- !u!1 &1296858050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,6 +3180,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1222530255, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 640906897}
     - target: {fileID: 6415741825303599073, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
       propertyPath: m_Name
       value: Avioneta
@@ -3246,28 +3232,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6415741825994274302, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
-      propertyPath: thrust
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415741825994274303, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415741825994274303, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415741825994274303, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415741825994274303, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 448661567400681464, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
 --- !u!23 &8303018675421927967
 MeshRenderer:

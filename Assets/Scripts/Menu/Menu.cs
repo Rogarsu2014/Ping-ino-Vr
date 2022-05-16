@@ -21,4 +21,9 @@ public class Menu : MonoBehaviour
             yield return null;
         }
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }
