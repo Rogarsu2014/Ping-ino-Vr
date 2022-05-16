@@ -13,18 +13,24 @@ public class PoolManager : MonoBehaviour
         return objectPool[rand];
     }
     
-    
-
 
     // Start is called before the first frame update
     void Start()
     {
+        PruebaMov();
+        
+    }
+
+    void PruebaMov(){
+        objectPool[0].transform.position = new Vector3(20.0f, 11.12f,0.39f);
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        objectPool[0].transform.position = new Vector3(objectPool[0].transform.position.x-Time.deltaTime, objectPool[0].transform.position.y, objectPool[0].transform.position.z);
         
     }
 }
