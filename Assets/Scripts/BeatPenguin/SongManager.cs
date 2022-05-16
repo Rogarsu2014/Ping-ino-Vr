@@ -17,7 +17,7 @@ public class SongManager : MonoBehaviour
     public int inputDelayInMiliseconds;
     
 
-    public string fileLocation= "";
+    public string fileLocation= "funcionaporfa.mid";
     public float noteTime;
     public float spawnY, spawnX, spawnZ; //donde spawneaen 3D
     public float hitX; //franja de colision (probablemente no haga falta)
@@ -37,8 +37,7 @@ public class SongManager : MonoBehaviour
     }
     private void ReadFromFile()
     {
-        string midiPath = Application.dataPath + "/Assets/midiAssets/" + fileLocation;
-        midiFile = MidiFile.Read(midiPath);
+        midiFile = MidiFile.Read(Application.dataPath + "/midiAssets/" + fileLocation);
         GetDataFromMidi();
     }
 

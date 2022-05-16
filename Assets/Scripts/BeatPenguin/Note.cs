@@ -20,11 +20,11 @@ public class Note : MonoBehaviour
         float t = (float)(timeInstantiated - timeSinceInstantiated / (SongManager.Instance.noteTime* 2));
         if (t > 1)
         {
-            gameObject.transform.position = new Vector3(0, 42.5f, 0);
+            Destroy(gameObject);
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(Vector3.up*SongManager.Instance.spawnX,Vector3.up*SongManager.Instance.despawnX, t);
+            transform.localPosition = Vector3.Lerp(Vector3.left*SongManager.Instance.spawnX,Vector3.left*SongManager.Instance.despawnX, t);
         }
     }
 }
