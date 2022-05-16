@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public int escena;
+    public int escena; //La escena a la que se va a ir
 
-    public void Llamada()
+    public void Llamada() //El método que se llama para ejecutar la corutina que activa la llamada a la siguiente escena
     {
         StartCoroutine(LoadYourAsyncScene());
     }
-    public IEnumerator LoadYourAsyncScene()
+    public IEnumerator LoadYourAsyncScene() //Función que carga la escena del menú (sacada de la documentación de Unity)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(escena);
 
@@ -22,7 +22,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    public void Salir()
+    public void Salir() //Función que se llama para salir del juego
     {
         Application.Quit();
     }
