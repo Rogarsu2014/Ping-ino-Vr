@@ -10,10 +10,15 @@ public class DianaScript : MonoBehaviour
 
     // Start is called before the first frame update
     public GameManager gm;
-    public AudioSource hitAudio;
+    private AudioSource hitAudio;
     public PathCreator path;
     float speed = 3f;
     float distanceTravelled;
+
+    private void Start()
+    {
+        hitAudio= gameObject.GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {   
@@ -27,10 +32,6 @@ public class DianaScript : MonoBehaviour
     public void hit()
     {
         hitAudio.Play();
-    }
-
-    private void OnDestroy()
-    {
     }
 
     private void Update()
