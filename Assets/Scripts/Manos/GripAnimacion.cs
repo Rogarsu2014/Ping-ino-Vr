@@ -18,4 +18,9 @@ public class GripAnimacion : MonoBehaviour
         }
         handAnimator.SetFloat("Grip", obj.ReadValue<float>());
     }
+
+    private void OnDestroy()
+    {
+        actionGrip.action.performed -= GripPress;
+    }
 }
