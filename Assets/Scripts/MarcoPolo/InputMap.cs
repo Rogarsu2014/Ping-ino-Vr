@@ -85,6 +85,18 @@ public class InputMap : MonoBehaviour
             
 
         }
+        else if (pistola.name == "Sniper")
+        {
+            Rigidbody clone = bala[disparos];
+            clone.MovePosition(canonPosition.position);
+            clone.rotation = pistola.rotation;
+            clone.velocity = pistola.TransformDirection(Vector3.forward * 300);
+            disparos++;
+            if (disparos >= bala.Count)
+            {
+                disparos = 0;
+            }
+        }
         else if(pistola.name == "Revolver")
         {
             Rigidbody clone = bala[disparos];
