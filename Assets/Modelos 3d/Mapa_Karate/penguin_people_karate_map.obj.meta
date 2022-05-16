@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 3ab71e76274f5c74382329a6bd20dfaa
+guid: 42b08fc71e7ab854c9e89eb044cee1ec
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ice
+    second: {fileID: 2100000, guid: ad4cf0bdcc5732f4098d6e03740e617c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: landscape
+    second: {fileID: 2100000, guid: b7c25cc04dc97a94b85725579bdff00b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lightsource
+    second: {fileID: 2100000, guid: a89af5eb899d5924dbd4c6e80f477150, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: objects
+    second: {fileID: 2100000, guid: 6bea3c8206a068d40bee8f195fc4af87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: smoke
+    second: {fileID: 2100000, guid: b514cf430ccab304e96b9696d3f08e6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water
+    second: {fileID: 2100000, guid: 8637990c296769f4f80a14f12b8b7fb0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

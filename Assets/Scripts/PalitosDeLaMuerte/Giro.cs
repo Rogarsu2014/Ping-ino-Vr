@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Giro : MonoBehaviour
 {
-    int[] velocidades = new int[] {30, 44, 58, 72, 86, 100};
+    int[] velocidades = new int[] {50, 64, 78, 92, 106, 120};
 
     int rotSpeed;
 
