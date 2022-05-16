@@ -26,7 +26,7 @@ public class AgarrarAla : MonoBehaviour
     {
         foreach (MeshRenderer r in ms)
         {
-            r.material.color = Color.blue;
+            r.material.color = Color.white;
         }
     }
     public void CambiarRotZ()
