@@ -66,6 +66,7 @@ public class AvionGameLogic : MonoBehaviour
                 cambiarPos();
 
                 escena[4].gameObject.SetActive(false);
+                escena[6].gameObject.SetActive(false);
 
                 textoTutorial.gameObject.SetActive(true);
 
