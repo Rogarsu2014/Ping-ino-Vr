@@ -12,6 +12,10 @@ public class GripAnimacion : MonoBehaviour
     }
     private void GripPress(InputAction.CallbackContext obj)
     {
+        if(handAnimator == null)
+        {
+            handAnimator = GetComponent<Animator>();
+        }
         handAnimator.SetFloat("Grip", obj.ReadValue<float>());
     }
 }

@@ -472,7 +472,7 @@
                     "path": "<XRController>{LeftHand}/grip",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "HandGripLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
