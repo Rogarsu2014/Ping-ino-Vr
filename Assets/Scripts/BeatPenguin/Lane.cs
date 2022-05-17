@@ -48,12 +48,4 @@ public class Lane : MonoBehaviour
         }
     }
 
-    private void Hit()
-    {
-        ScoreManager.Hit();
-    }
-    private void Miss()
-    {
-        ScoreManager.Miss();
-    }
 }
