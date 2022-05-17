@@ -67,9 +67,10 @@ public class InputMap : MonoBehaviour
 
     public void disparo()
     {
-        pistola.GetComponentInParent<AudioSource>().Play();
+
         if(pistola.name == "Shotgun" && readyToShoot)
         {
+            pistola.GetComponentInParent<AudioSource>().Play();
             float maxSpread = 0.1f;
             foreach (Rigidbody clone in cartucho)
             {
@@ -87,6 +88,7 @@ public class InputMap : MonoBehaviour
         }
         else if (pistola.name == "Sniper")
         {
+            pistola.GetComponentInParent<AudioSource>().Play();
             Rigidbody clone = bala[disparos];
             clone.MovePosition(canonPosition.position);
             clone.rotation = pistola.rotation;
@@ -99,6 +101,7 @@ public class InputMap : MonoBehaviour
         }
         else if(pistola.name == "Revolver")
         {
+            pistola.GetComponentInParent<AudioSource>().Play();
             Rigidbody clone = bala[disparos];
             clone.MovePosition(canonPosition.position);
             clone.rotation = pistola.rotation;

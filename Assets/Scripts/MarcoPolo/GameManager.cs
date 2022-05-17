@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         textMeshPuntos.color = Color.blue;
         if(tiempoFinal <= 0)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene(0);
         }
     }
 }
