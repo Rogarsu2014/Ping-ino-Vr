@@ -209,60 +209,65 @@ public class AvionGameLogic : MonoBehaviour
 
     private void interludio() //Entramos en la fase 1.5
     {
-        manoI = player.GetNamedChild("LeftHand Controller");
-        manoD = player.GetNamedChild("RightHand Controller");
+        manoI = player.GetNamedChild("LeftHand Controller"); //Cogemos el mando izquierdo
+        manoD = player.GetNamedChild("RightHand Controller"); //Cogemos el mando derecho
 
 
-        manoI.SetActive(false);
-        manoD.SetActive(false);
+        manoI.SetActive(false);  //Desactivamos el mando izquierdo
+        manoD.SetActive(false); //Desactivamos el mando derecho
 
-        escena[0].gameObject.SetActive(true);
-        escena[1].gameObject.SetActive(true);
+        escena[0].gameObject.SetActive(true); //Activamos la mano con la animación (tutorial)
+        escena[1].gameObject.SetActive(true); //Activamos el avión con la animación (tutorial)
 
     }
 
-    private void TerminarFase2()
+    private void TerminarFase2() //Terminamos la partida como tal
     {
-        avion1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        avion1 .GetComponent<AircraftPhysics>().enabled = false;
+        avion1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll; //Detenemos el avión por completo, congelando las constraints del rigidbody
+        avion1 .GetComponent<AircraftPhysics>().enabled = false; //Detenemos el script de las físicas
 
+        //Cogemos la distancia recorrida
         int puntuacion1;
         puntuacion1 = int.Parse(distancia.text);
 
+        //Leemos desde un txt la puntuación máxima mediante un StreamReader
         StreamReader read = new StreamReader("MaxScoreAvion.txt");
         int maxScore = int.Parse(read.ReadLine());
         read.Close();
 
-        distancia.gameObject.SetActive(false);
+        distancia.gameObject.SetActive(false); //Desactivamos el texto que muestra la distancia
 
+        //Leemos la puntuación y la ponemos en un texto
         puntos.text = "Puntuación: " + puntuacion1.ToString();
         puntos.gameObject.SetActive(true);
 
-        if(puntuacion1 > 0)
+        if(puntuacion1 > 0)//Si la puntuación es positiva
         {
-            if (puntuacion1 > maxScore)
+            if (puntuacion1 > maxScore) // y además hemos hecho un nuevo record
             {
-                audioSources[2].GetComponent<AudioSource>().Play();
-                newRecord.gameObject.SetActive(true);
-                StreamWriter write = new StreamWriter("MaxScoreAvion.txt", false);
+                audioSources[2].GetComponent<AudioSource>().Play(); //Activamos el sonido "Big Win"
+                newRecord.gameObject.SetActive(true); //Activamos el texto que pone "nuevo record"
+
+                //Sobreescribimos la puntuación en el txt mediante un StreamWriter
+                StreamWriter write = new StreamWriter("MaxScoreAvion.txt", false); 
                 write.WriteLine(puntuacion1);
                 write.Close();
             }
-            else
+            else //Si no hemos hecho record
             {
-                audioSources[0].GetComponent<AudioSource>().Play();
+                audioSources[0].GetComponent<AudioSource>().Play(); //Activamos el sonido "Win"
             }
         }
-        else
+        else //Si la distancia recorrida es negativa (hemos ido hacia detrás)
         {
-            audioSources[1].GetComponent<AudioSource>().Play();
+            audioSources[1].GetComponent<AudioSource>().Play(); //Activamos el sonido "Lose"
         }
         
 
-        final = true;
+        final = true; //Pasamos al final
     }
 
-    private void DesactivarTodo()
+    private void DesactivarTodo() //Desactivar todos los elementos de lal escena
     {
         foreach(GameObject g in escena)
         {
@@ -270,37 +275,37 @@ public class AvionGameLogic : MonoBehaviour
         }
     }
 
-    private void giroPicoDerecha(float f)
+    private void giroPicoDerecha(float f) //Giramos el pico con el gatillo derecho
     {
-        Vector3 rot = avion1.GetNamedChild("PicoPivot").transform.localRotation.eulerAngles;
-        float prevRot = rot.x;
-        rot.x += f;
-        if(prevRot <= 90f && rot.x > 90f)
+        Vector3 rot = avion1.GetNamedChild("PicoPivot").transform.localRotation.eulerAngles; //Recogemos la rotación del pico
+        float prevRot = rot.x; //guardamos la rotación actual
+        rot.x += f; //Modificamos la rotación
+        if(prevRot <= 90f && rot.x > 90f) //Si la rotación anterior era menor a 90 y la nueva es mayor que 90
         {
-            rot.x = 90f;
+            rot.x = 90f; //No le dejamos y la ponemos a 90, ya que si no el pico podría meterse dentro del avión y eso no es muy realista
         }
-        avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot);
+        avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot); //Aplicamos la rotación
     }
 
-    private void giroPicoIzquierda(float f)
+    private void giroPicoIzquierda(float f) //Giramos el pico con el gatillo izquierda
     {
-        Vector3 rot = avion1.GetNamedChild("PicoPivot").transform.localRotation.eulerAngles;
-        float prevRot = rot.x;
-        rot.x -= f;
-        if (prevRot >= 270f && rot.x < 270f)
+        Vector3 rot = avion1.GetNamedChild("PicoPivot").transform.localRotation.eulerAngles;//Recogemos la rotación del pico
+        float prevRot = rot.x; //guardamos la rotación actual
+        rot.x -= f; //Modificamos la rotación
+        if (prevRot >= 270f && rot.x < 270f) //Si la rotación anterior era mayor que 270 y la nueva es menor que 270
         {
-            rot.x = 270f;
+            rot.x = 270f; //No le dejamos y la ponemos a 270, ya que si no el pico podría meterse dentro del avión y eso no es muy realista
         }
-        avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot);
+        avion1.GetNamedChild("PicoPivot").transform.localRotation = Quaternion.Euler(rot); //Aplicamos la rotación
     }
 
-    public void CeroTiempo()
+    public void CeroTiempo() //Poner el tiempo a 0 (se usa cuando agarramos el cubo)
     {
         restoTiempo = 0;
-        cubo.gameObject.SetActive(false);
+        cubo.gameObject.SetActive(false); //Desactivamos el cubo
     }
 
-    private IEnumerator LoadYourAsyncScene()
+    private IEnumerator LoadYourAsyncScene() //Función que carga la escena del menú (sacada de la documentación de Unity)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
 
