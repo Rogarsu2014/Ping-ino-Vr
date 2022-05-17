@@ -10123,7 +10123,7 @@ MonoBehaviour:
   marginOfError: 0.1
   inputDelayInMiliseconds: 0
   fileLocation: funcionaporfa.mid
-  noteTime: 7
+  noteTime: 15
   noteSpawnY: 30
   noteTapY: -20
 --- !u!4 &255399740
