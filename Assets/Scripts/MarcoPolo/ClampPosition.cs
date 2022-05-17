@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-
+ 
+/* Esta clase se encarga de mantener el rail de la escopeta en el rango
+ * en el que se debería mover en la realidad y a la vez calcula si recarga
+ */
 public class ClampPosition : MonoBehaviour
 {
     private bool agarrado = false;
@@ -25,23 +28,24 @@ public class ClampPosition : MonoBehaviour
     {
         if (agarrado)
         {
+            //Si esta agarrado lo transofrma en función del movimiento de la mano que agarra
             XRGrabInteractable i = this.GetComponent<XRGrabInteractable>();
             Transform j = i.GetOldestInteractorSelecting().transform;
 
             Vector3 pos = j.position;
             float posicion = pos.z - transform.localPosition.z;
 
+            //Si está en un tope no se transforma
             if ((topeMax&&posicion>0)||(topeMin&&posicion<0))
             {
                 transform.Translate(new Vector3(0, 0, 0), Space.Self);
             }
+            //Sino transforma únicamente la posición en Z local, hacia delante y detras.
             else
             {
                 transform.Translate(new Vector3(0, 0, posicion), Space.Self);
 
             }
-
-            //transform.localPosition = new Vector3(Mathf.Clamp(pos.x, 0f, 0f), Mathf.Clamp(pos.y, 0f, 0f), Mathf.Clamp(transform.position.z, -2.0f, 2.0f));
 
         }
     }

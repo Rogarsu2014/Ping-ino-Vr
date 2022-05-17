@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class temporizador : MonoBehaviour
 {
 
-    public float tiempo = 120;
+    public float tiempo = 90;
     public TextMeshProUGUI textoTiempo;
 
     public bool inGame = false;

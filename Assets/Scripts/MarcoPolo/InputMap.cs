@@ -3,26 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+/*
+  * Esta clase se implementa dentro del XROrigin de Marco Polo y controla el movimiento del jugador,
+  * los disparos y el arma que sujeta. 
+ */
 public class InputMap : MonoBehaviour
 {
+    //Se define la variable donde se guarda el movimienot y la velocidad 
     Vector2 movement;
-
     float speed = .05f;
-
-    public List <Rigidbody> bala;
+    //Un conteo de los disparos, ayuda en el pull
     private int disparos = 0;
+
+    //Listas de balas para realizar un pull
+    public List <Rigidbody> bala;
     public List <Rigidbody> cartucho;
+
+    //Transform de los GameObjects relativos al arma, la cámara y al cañon(diferente en cada arma)
     private Transform pistola;
     public Transform camara;
     private Transform canonPosition;
+
+
     bool grabbed;
     bool readyToShoot=true;
+
     public void OnActivate()
     {
 
         if (grabbed)
         {
-            //DISPARA  
+            //Dispara si está agarrado
             disparo();
             
         }
@@ -37,7 +49,8 @@ public class InputMap : MonoBehaviour
     {
         canonPosition = t;
     }
-
+    
+    //Movimiento con el Input Manager de unity
     public void OnMove(InputValue input)
     {
         movement = input.Get<Vector2>();
@@ -45,6 +58,7 @@ public class InputMap : MonoBehaviour
     
     void Update()
     {
+        //Se calcula el movimiento del jugador en funcion de la camara, limitando el eje y.
         var playerTransform = transform;
         playerTransform.Translate(Vector3.Scale(camara.right,new Vector3(1,0,1)) * movement.x * speed,Space.World);
         playerTransform.Translate(Vector3.Scale(camara.forward, new Vector3(1, 0, 1)) * movement.y * speed,Space.World);
@@ -67,19 +81,27 @@ public class InputMap : MonoBehaviour
 
     public void disparo()
     {
-        pistola.GetComponentInParent<AudioSource>().Play();
+        /*
+         * Se comprueba el nombre del arma que se tiene agarrado para saber el comportamiento del disparo, 
+         * en el caso de la escopeta, se comprueba si ha recargado antes de disparar.
+         */
         if(pistola.name == "Shotgun" && readyToShoot)
         {
+
+            pistola.GetComponentInParent<AudioSource>().Play();
             float maxSpread = 0.1f;
+            /* Se calcula una dirección aleatoria dentro de un rango para cada bala
+             * para simular la dispersión de la escopeta.
+             */
             foreach (Rigidbody clone in cartucho)
             {
+               
                 Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
-                //clone = Instantiate(cartucho, canonPosition.position, pistola.rotation
+                
                 clone.MovePosition(canonPosition.position);
                 clone.rotation = pistola.rotation;
                 clone.velocity = pistola.TransformDirection(dir* 30);
 
-                //clone.GetComponent<Rigidbody>().AddForce(dir * 500);
                 readyToShoot=false;
             }
             
@@ -87,10 +109,16 @@ public class InputMap : MonoBehaviour
         }
         else if (pistola.name == "Sniper")
         {
+            //En este caso solo se calcula una trayectoria y se lanza a gran velocidad
+            pistola.GetComponentInParent<AudioSource>().Play();
+            
+            //Se realiza un pull de las balas
             Rigidbody clone = bala[disparos];
             clone.MovePosition(canonPosition.position);
             clone.rotation = pistola.rotation;
             clone.velocity = pistola.TransformDirection(Vector3.forward * 300);
+
+            //Se realiza un conteo de los disparos para cuando se supere un número máximo vuelve a tomar la primera bala
             disparos++;
             if (disparos >= bala.Count)
             {
@@ -99,6 +127,7 @@ public class InputMap : MonoBehaviour
         }
         else if(pistola.name == "Revolver")
         {
+            pistola.GetComponentInParent<AudioSource>().Play();
             Rigidbody clone = bala[disparos];
             clone.MovePosition(canonPosition.position);
             clone.rotation = pistola.rotation;

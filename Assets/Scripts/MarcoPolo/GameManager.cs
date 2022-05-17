@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
- 
+  
+/* Esta clase GameManager controla el funcionamiento del juego Marco Polo */
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
     public List<GameObject> dianas;
     private int points;
+
     public TextMeshProUGUI textMeshPuntos;
     public TextMeshProUGUI textMeshTiempo;
+
     float tiempoResto;
     float tiempoFinal;
     bool inicioJuego;
@@ -29,13 +32,14 @@ public class GameManager : MonoBehaviour
         
     }
 
+    //Funcion que coloca la diana en una posición aleatoria
     public void randomDianaPos(GameObject d)
     {
         Vector3 pos = new Vector3(Random.Range(-30f, 30f), 4, Random.Range(-30f, 30f));
         d.transform.position = pos;
     }
 
-
+    //Función que añade puntos y cambia el valor del texto donde se muestra
     public void addPoints()
     {
         points += 1;
@@ -44,24 +48,27 @@ public class GameManager : MonoBehaviour
         textMeshPuntos.text = points.ToString();
     }
 
+
     private void FixedUpdate()
     {
+        //Se comprueba si el juego a comenzado (comienza cuando se toma un arma)
         if ( inicioJuego)
         { 
-        foreach(var d in dianas)
-        {
-            lookAtPlayer(d, player.transform);
-        }
-        tiempoResto -= Time.deltaTime;
+            //Cada diana se orienta hacia el jugador
+            foreach(var d in dianas)
+            {
+                lookAtPlayer(d, player.transform);
+            }
+            //Se calcula y muestra el tiempo que falta
+            tiempoResto -= Time.deltaTime;
+            float segundos = Mathf.FloorToInt(tiempoResto);
+            textMeshTiempo.text = string.Format("{0:00}", segundos);
 
-        float segundos = Mathf.FloorToInt(tiempoResto);
-
-        textMeshTiempo.text = string.Format("{0:00}", segundos);
-
-        if(tiempoResto <=0)
-        {
-            gameOver();
-        }
+            //Cuando el tiempo acaba se llama a gameOver()
+            if(tiempoResto <=0)
+            {
+                gameOver();
+            }
 
         }
     }
@@ -76,6 +83,8 @@ public class GameManager : MonoBehaviour
     {
         inicioJuego = true;
     }
+
+    //Envia al jugador a otra plataforma y muestra la puntuación final, al cabo de unos segundos, devuelve al menú 
     void gameOver()
     {
         player.transform.position = new Vector3(5000, 0, 0);
@@ -87,7 +96,7 @@ public class GameManager : MonoBehaviour
         textMeshPuntos.color = Color.blue;
         if(tiempoFinal <= 0)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene(0);
         }
     }
 }
