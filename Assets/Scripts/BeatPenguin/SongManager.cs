@@ -4,6 +4,8 @@ using UnityEngine;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using System.IO;
+using UnityEngine.Networking;
+using System;
 
 
 public class SongManager : MonoBehaviour
@@ -12,18 +14,21 @@ public class SongManager : MonoBehaviour
     public AudioSource audioSource;
     public Lane[] lanes;
     public float songDelayInSeconds;
-    public double marginOfError;//seconds
+    public double marginOfError; // in seconds
 
     public int inputDelayInMiliseconds;
     
 
-    public string fileLocation= "funcionaporfa.mid";
+    public string fileLocation;
     public float noteTime;
-    public float spawnY, spawnX, spawnZ; //donde spawneaen 3D
-    public float hitX; //franja de colision (probablemente no haga falta)
-    public float despawnX // zona en z donde devolvemos al pool
+    public float noteSpawnY;
+    public float noteTapY;
+    public float noteDespawnY
     {
-        get { return hitX - (spawnX - hitX); }
+        get
+        {
+            return noteTapY - (noteSpawnY - noteTapY);
+        }
     }
 
     public static MidiFile midiFile;
@@ -37,22 +42,23 @@ public class SongManager : MonoBehaviour
     }
     private void ReadFromFile()
     {
-        midiFile = MidiFile.Read(Application.dataPath + "/midiAssets/" + fileLocation);
+        midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
         GetDataFromMidi();
     }
 
-    private void GetDataFromMidi()
+    public void GetDataFromMidi()
     {
         var notes = midiFile.GetNotes();
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);
 
-        foreach(var lane in lanes) lane.SetTimeStamps(array);
+        foreach (var lane in lanes) lane.SetTimeStamps(array);
 
         Invoke(nameof(StartSong), songDelayInSeconds);
     }
 
-    public void StartSong() {
+    public void StartSong()
+    {
         audioSource.Play();
     }
 
