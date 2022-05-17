@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColisionAvioneta : MonoBehaviour
 {
-    public GameObject gameManager; //Guardamos el game Manager de la escena
+    public AvionGameLogic gameManager; //Guardamos el game Manager de la escena
 
     private bool mensajeMandado = false; //Comprobación de que el mensaje no se mande mas de una vez
 
@@ -14,7 +14,7 @@ public class ColisionAvioneta : MonoBehaviour
         {
             if (collision.gameObject.name == "Terrain" || collision.gameObject.name == "Iceberg") //Y ha chocado específicamente con el terreno o con el iceberg
             {
-                gameManager.SendMessage("CheckColision"); //Llama al método CheckColision
+                gameManager.noChocado = false;//Al avion se choca
             }
         }
     }

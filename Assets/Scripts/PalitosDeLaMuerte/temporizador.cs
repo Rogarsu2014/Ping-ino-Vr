@@ -9,19 +9,25 @@ public class temporizador : MonoBehaviour
     public float tiempo = 120;
     public TextMeshProUGUI textoTiempo;
 
+    public bool inGame = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (tiempo > 0)
+        if (inGame)
         {
-            tiempo -= Time.deltaTime;
-        }
-        else
-        {
-            tiempo = 0;
-        }
+            if (tiempo > 0)
+            {
+                tiempo -= Time.deltaTime;
+            }
+            else
+            {
+                inGame = false;
+                tiempo = 0;
+            }
 
-        muestraTiempo(tiempo);
+            muestraTiempo(tiempo);
+        }
     }
 
     void muestraTiempo(float tiempoAMostrar)
@@ -35,5 +41,10 @@ public class temporizador : MonoBehaviour
         float segundos = Mathf.FloorToInt(tiempoAMostrar % 60);
 
         textoTiempo.text = string.Format("{0:0}:{1:00}", minutos, segundos);
+    }
+
+    public void iniciaTiempo()
+    {
+        inGame = true;
     }
 }

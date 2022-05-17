@@ -10,8 +10,6 @@ public class GameLogic : MonoBehaviour
 
     public GameObject jugador;
 
-    public bool inGame = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +28,11 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inGame)
-        {
 
-        }
     }
 
     public void avanceFase()
     {
-        inGame = true;
 
         canvasTutorial.gameObject.SetActive(false);
         canvasAvanceFase.gameObject.SetActive(false);
@@ -47,7 +41,7 @@ public class GameLogic : MonoBehaviour
         Vector3 posicion;
         posicion.x = (float)14.524;
         posicion.y = (float)0.07;
-        posicion.z = (float)-2.316;
+        posicion.z = (float)-2.328;
 
         jugador.gameObject.transform.position = posicion;
     }
