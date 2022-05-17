@@ -13,6 +13,8 @@ public class temporizador : MonoBehaviour
     public bool inGame = false;
 
     public GameObject jugador;
+    public Canvas canvasCreditos;
+    public Canvas canvasHeadsUp;
 
     // Update is called once per frame
     void Update()
@@ -28,7 +30,7 @@ public class temporizador : MonoBehaviour
                 inGame = false;
                 tiempo = 0;
 
-                GameFlow.finJuego(jugador);
+                GameFlow.finJuego(jugador, canvasCreditos, canvasHeadsUp);
             }
 
             muestraTiempo(tiempo);
