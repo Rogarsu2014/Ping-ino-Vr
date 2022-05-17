@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 
-
+/* Esta clase se encuentra en el prefab de las dianas, y determinan su comportamiento */
 
 public class DianaScript : MonoBehaviour
 {
 
-    // Start is called before the first frame update
     public GameManager gm;
     private AudioSource hitAudio;
-    public PathCreator path;
+    public PathCreator pathing;
     float speed = 3f;
     float distanceTravelled;
 
@@ -20,9 +19,11 @@ public class DianaScript : MonoBehaviour
         hitAudio= gameObject.GetComponent<AudioSource>();
     }
 
+    /* Cuando se encuentra una colisión, la diana se desplaza a otro lugar aleatorio, 
+     añade puntos y ejecuta el audio de la explosión.*/
     private void OnCollisionEnter(Collision collision)
     {   
-        gm.randomDianaPos(path.gameObject);
+        gm.randomDianaPos(pathing.gameObject);
         collision.gameObject.transform.position = new Vector3(1000, 1000, 1000);
         gm.addPoints();
         hit();
@@ -34,10 +35,11 @@ public class DianaScript : MonoBehaviour
         hitAudio.Play();
     }
 
+    /* En Update se calcula el movimiento a través del asset PathCreator. */
     private void Update()
     {
         distanceTravelled += speed * Time.deltaTime;
-        transform.position = path.path.GetPointAtDistance(distanceTravelled);
+        transform.position = pathing.path.GetPointAtDistance(distanceTravelled);
     }
 
 }
