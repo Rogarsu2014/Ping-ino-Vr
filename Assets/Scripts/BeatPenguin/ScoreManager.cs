@@ -33,6 +33,6 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text= comboScore.ToString();
+        scoreText.text= "Puntos: "+comboScore.ToString() +"\n Combo: "+ combo.ToString();
     }
 }
