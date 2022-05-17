@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fe25d14583086469c64a8c7a3f2bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempo: 15
+  tiempo: 90
   textoTiempo: {fileID: 1781923166}
   inGame: 0
   jugador: {fileID: 904720976}
