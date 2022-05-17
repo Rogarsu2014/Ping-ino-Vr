@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Giro : MonoBehaviour
+public class ControladorTotem : MonoBehaviour
 {
     int[] velocidades = new int[] {50, 64, 78, 92, 106, 120};
 
     int rotSpeed;
+
+    public AudioSource sonidoGolpe;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class Giro : MonoBehaviour
     // Cambia el sentido del giro
     public void actualizaGiro()
     {
+        activaSonido();
+
         int nuevaVelocidad = velocidades[(int)Random.Range(0.0f, 5.0f)];
 
         if(rotSpeed > 0) {
@@ -36,19 +40,9 @@ public class Giro : MonoBehaviour
 
         }
     }
+
+    void activaSonido()
+    {
+        sonidoGolpe.Play();
+    }
 }
-
-
-// public void actualizaGiro()
-//     {
-//         if (Mathf.Abs(rotSpeed) < 100.0)
-//         {
-//             rotSpeed = -rotSpeed * (float)1.2;
-//             //Debug.Log(rotSpeed);
-//         }
-//         else
-//         {
-//             rotSpeed = -rotSpeed;
-//             //Debug.Log(rotSpeed);
-//         }
-//     }

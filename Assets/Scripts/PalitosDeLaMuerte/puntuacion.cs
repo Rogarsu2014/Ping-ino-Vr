@@ -15,6 +15,13 @@ public class puntuacion : MonoBehaviour
         muestraPuntuacion(puntos);
     }
 
+    public void restaPuntos()
+    {
+        puntos -= 2;
+
+        muestraPuntuacion(puntos);
+    }
+
     void muestraPuntuacion(int puntos)
     {
         textoPuntuacion.text = string.Format("{0:0}", puntos);
