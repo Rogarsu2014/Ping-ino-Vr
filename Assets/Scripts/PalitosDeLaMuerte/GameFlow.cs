@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,11 @@ public class GameFlow : MonoBehaviour
     public Canvas canvasTutorial;
     public Canvas canvasAvanceFase;
     public Canvas canvasHeadsUp;
+    public Canvas canvasCreditos;
 
     public GameObject jugador;
 
-    public GameObject totem;
+    float tiempoCreditos = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class GameFlow : MonoBehaviour
         canvasTutorial.gameObject.SetActive(true);
         canvasAvanceFase.gameObject.SetActive(true);
         canvasHeadsUp.gameObject.SetActive(false);
+        canvasCreditos.gameObject.SetActive(false);
 
         Vector3 posicion;
         posicion.x = (float)14.524;
@@ -29,12 +32,32 @@ public class GameFlow : MonoBehaviour
         jugador.gameObject.transform.position = posicion;
     }
 
+    void Update()
+    {
+        if (canvasCreditos.gameObject.activeSelf)
+        {
+            TextMeshProUGUI textoCreditos = new TextMeshProUGUI();
+            //TextMeshProUGUI puntos = canvasHeadsUp.transform.GetChild(1);
+            textoCreditos.text = string.Format("Tu Puntuacion: " + canvasHeadsUp.transform.GetChild(1));
+
+            if (tiempoCreditos > 0)
+            {
+                tiempoCreditos -= Time.deltaTime;
+            }
+            else
+            {
+                AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
+            }
+        }
+    }
+
     public void inicioJuego()
     {
         //GameLogic.avanceFase(canvasTutorial, canvasAvanceFase, canvasHeadsUp, jugador);
         canvasTutorial.gameObject.SetActive(false);
         canvasAvanceFase.gameObject.SetActive(false);
         canvasHeadsUp.gameObject.SetActive(true);
+        canvasCreditos.gameObject.SetActive(false);
 
         Vector3 posicion;
         posicion.x = (float)14.524;
@@ -44,15 +67,16 @@ public class GameFlow : MonoBehaviour
         jugador.gameObject.transform.position = posicion;
     }
 
-    public static void finJuego(GameObject jugador)
+    public static void finJuego(GameObject jugador, Canvas canvasCreditos, Canvas canvasHeadsUp)
     {
+        canvasHeadsUp.gameObject.SetActive(false);
+        canvasCreditos.gameObject.SetActive(true);
+
         Vector3 posicion;
         posicion.x = (float)14.524;
         posicion.y = (float)0.426;
         posicion.z = (float)-6.47;
 
         jugador.gameObject.transform.position = posicion;
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
     }
 }
