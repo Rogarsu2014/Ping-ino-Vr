@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tiempoResto = 60f;
+        tiempoResto = 30f;
         tiempoFinal = 10f;
         points = 0;
         foreach (var diana in dianas)

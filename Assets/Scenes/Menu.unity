@@ -5049,7 +5049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a21520d3add854fa3e80699ffd189a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escena: 1
+  escena: 4
 --- !u!114 &1742070825
 MonoBehaviour:
   m_ObjectHideFlags: 0
