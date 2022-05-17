@@ -7,10 +7,12 @@ public class Note : MonoBehaviour
 
     double timeInstantiated;
     public float assignedTime;
+    float spdRot = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
         timeInstantiated = SongManager.GetAudioSourceTime();
+        
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class Note : MonoBehaviour
         {
             Vector3 aux = new Vector3(Vector3.Lerp(Vector3.left*SongManager.Instance.noteDespawnY,Vector3.left*SongManager.Instance.noteSpawnY, t).x, transform.position.y, transform.position.z);
             transform.position = aux;
+            transform.Rotate(spdRot*Time.deltaTime,spdRot*Time.deltaTime, spdRot*Time.deltaTime);
         }
     }
 

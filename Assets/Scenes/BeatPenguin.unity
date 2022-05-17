@@ -15066,7 +15066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a1fa30e5c75948b55723f0fa44d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 0
+  noteRestriction: 9
   notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
@@ -20439,7 +20439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a1fa30e5c75948b55723f0fa44d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 4
+  noteRestriction: 7
   notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
