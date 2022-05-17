@@ -13,7 +13,6 @@ public class Lane : MonoBehaviour
     public List<double> timeStamps = new List<double>();
 
     int spawnIndex = 0; //cual sacar
-    int hitIndex = 0;
     
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
     {
