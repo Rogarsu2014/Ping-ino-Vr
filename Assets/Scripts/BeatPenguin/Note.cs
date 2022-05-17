@@ -21,6 +21,7 @@ public class Note : MonoBehaviour
         float t = (float)(timeSinceInstantiated / (SongManager.Instance.noteTime * 2));
         if (t > 1)
         {
+            Miss();
             Destroy(gameObject);
             //Destroy(this);
         }
@@ -30,4 +31,17 @@ public class Note : MonoBehaviour
             transform.position = aux;
         }
     }
+
+    public void Hit(){
+        ScoreManager.Hit();
+        Destroy(gameObject);
+
+    }
+    public void Miss(){
+        ScoreManager.Miss();
+
+    }
+
+
+
 }
