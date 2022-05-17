@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restoTiempo: 60
+  noChocado: 1
   tiempo: {fileID: 1107148517}
   textoTutorial: {fileID: 1197026837}
   distancia: {fileID: 997354714}
@@ -3183,7 +3184,7 @@ PrefabInstance:
     - target: {fileID: 1222530255, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 640906897}
+      objectReference: {fileID: 640906899}
     - target: {fileID: 6415741825303599073, guid: 14d84a114e3dae647b0e0ba6fbd5272f, type: 3}
       propertyPath: m_Name
       value: Avioneta

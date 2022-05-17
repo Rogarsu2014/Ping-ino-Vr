@@ -9933,9 +9933,9 @@ MonoBehaviour:
   marginOfError: 0.1
   inputDelayInMiliseconds: 0
   fileLocation: funcionaporfa.mid
-  noteTime: 3
-  noteSpawnY: 0
-  noteTapY: 0
+  noteTime: 7
+  noteSpawnY: 30
+  noteTapY: -20
 --- !u!4 &255399740
 Transform:
   m_ObjectHideFlags: 0
@@ -9980,7 +9980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 9
-  notePrefab: {fileID: 4693095883121766742, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
+  notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
 --- !u!4 &336643879
@@ -15067,7 +15067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 0
-  notePrefab: {fileID: 4693095883121766742, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
+  notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
 --- !u!4 &982366607
@@ -15114,7 +15114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 11
-  notePrefab: {fileID: 4693095883121766742, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
+  notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
 --- !u!4 &1007959586
@@ -15161,7 +15161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 5
-  notePrefab: {fileID: 4693095883121766742, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
+  notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
 --- !u!4 &1126071242
@@ -15207,7 +15207,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cdc771fb691e8a04a8cf300852bcd93c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.192
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -20266,7 +20266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 7
-  notePrefab: {fileID: 4693095883121766742, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
+  notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
 --- !u!4 &1474631015
@@ -20440,7 +20440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 4
-  notePrefab: {fileID: 4693095883121766742, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
+  notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
 --- !u!4 &1555551924

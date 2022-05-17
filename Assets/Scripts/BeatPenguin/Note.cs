@@ -16,15 +16,32 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         double timeSinceInstantiated = SongManager.GetAudioSourceTime() - timeInstantiated;
-        float t = (float)(timeInstantiated - timeSinceInstantiated / (SongManager.Instance.noteTime* 2));
+        float t = (float)(timeSinceInstantiated / (SongManager.Instance.noteTime * 2));
         if (t > 1)
         {
+            Miss();
             Destroy(gameObject);
+            //Destroy(this);
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(Vector3.left*SongManager.Instance.noteSpawnY,Vector3.left*SongManager.Instance.noteDespawnY, t);
+            Vector3 aux = new Vector3(Vector3.Lerp(Vector3.left*SongManager.Instance.noteDespawnY,Vector3.left*SongManager.Instance.noteSpawnY, t).x, transform.position.y, transform.position.z);
+            transform.position = aux;
         }
     }
+
+    public void Hit(){
+        ScoreManager.Hit();
+        Destroy(gameObject);
+
+    }
+    public void Miss(){
+        ScoreManager.Miss();
+
+    }
+
+
+
 }
