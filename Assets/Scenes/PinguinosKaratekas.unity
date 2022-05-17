@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiempo: 90
   textoTiempo: {fileID: 1781923166}
+  inGame: 0
 --- !u!4 &95831187
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +217,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: ef0186df2dc17d54da7c76c3087928ce, type: 3}
+    - target: {fileID: 6858922206058361309, guid: 20cbc11fba3761947a792dcd54707a93, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4f2752d2992981d479fdba1759a94815, type: 2}
     - target: {fileID: 8181573096071317257, guid: 20cbc11fba3761947a792dcd54707a93, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -325,6 +330,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 3e7df2ab1d1a19441b28bc9c4433c951, type: 3}
+    - target: {fileID: 6858922206058361309, guid: 20cbc11fba3761947a792dcd54707a93, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4f2752d2992981d479fdba1759a94815, type: 2}
     - target: {fileID: 8181573096071317257, guid: 20cbc11fba3761947a792dcd54707a93, type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -481,9 +490,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\xA1Bienvenido! En este juego deber\xE1s bloquear los pinchos rotatorios
-    poniendo tu mano en su trayectoria. Ganar\xE1s puntos seg\xFAn los loquees. El
-    objetivo es conseguir la m\xE1xima puntuaci\xF3n posible. Agarra la esfera que
-    tienes delante cuando quieras comenzar."
+    poniendo tu mano en su trayectoria. Ganar\xE1s puntos seg\xFAn los bloquees.
+    El objetivo es conseguir la m\xE1xima puntuaci\xF3n posible. Agarra la esfera
+    que tienes delante cuando quieras comenzar."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -517,7 +526,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -717,7 +726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904720976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.524, y: 0.07, z: -2.316}
+  m_LocalPosition: {x: 14.524, y: 0.07, z: -2.328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 54650057}
@@ -970,7 +979,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979321488}
   m_LocalRotation: {x: -0, y: 0.14258857, z: -0, w: 0.9897821}
-  m_LocalPosition: {x: 0, y: 0, z: -6.8}
+  m_LocalPosition: {x: 0, y: 0, z: -6.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1334050031}
@@ -979,7 +988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 16.395, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 17.38, y: -1.4}
+  m_AnchoredPosition: {x: 17.17, y: -0.867}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1082197929
@@ -1058,6 +1067,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f7f08f5534b5f2a45a958b71dee04466, type: 3}
+    - target: {fileID: 6858922206058361309, guid: 20cbc11fba3761947a792dcd54707a93, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4f2752d2992981d479fdba1759a94815, type: 2}
     - target: {fileID: 8181573096071317257, guid: 20cbc11fba3761947a792dcd54707a93, type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1167,7 +1180,7 @@ GameObject:
   - component: {fileID: 1324924115}
   - component: {fileID: 1324924114}
   m_Layer: 0
-  m_Name: Game Logic
+  m_Name: Game Flow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1186,9 +1199,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasTutorial: {fileID: 690914152}
-  canvasAvanceFase: {fileID: 0}
+  canvasAvanceFase: {fileID: 979321491}
   canvasHeadsUp: {fileID: 1927636687}
-  jugador: {fileID: 0}
+  jugador: {fileID: 904720976}
   inGame: 0
 --- !u!4 &1324924115
 Transform:
@@ -1842,7 +1855,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701874664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927636688}
@@ -1850,7 +1863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 203}
+  m_AnchoredPosition: {x: 49, y: -289}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701874666
@@ -1976,7 +1989,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781923164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -193.00002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927636688}
@@ -1984,7 +1997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 243}
+  m_AnchoredPosition: {x: 48.99974, y: -249}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1781923166
@@ -2154,7 +2167,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 911508430}
-  m_PlaneDistance: 0.5
+  m_PlaneDistance: 0.6
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2291,7 +2304,7 @@ GameObject:
   - component: {fileID: 1999218323}
   - component: {fileID: 1999218322}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: boton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,18 +2345,6 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1324924114}
         m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
@@ -2357,6 +2358,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 95831186}
+        m_TargetAssemblyTypeName: temporizador, Assembly-CSharp
+        m_MethodName: iniciaTiempo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -2473,7 +2498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999218321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.15, y: 0.79, z: -6.6}
+  m_LocalPosition: {x: 14.940001, y: 1.3230001, z: -5.93}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}

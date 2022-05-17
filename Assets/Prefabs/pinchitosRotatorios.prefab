@@ -309,8 +309,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91573006, y: 0.12252914, z: 0.122529805}
-  m_Center: {x: 0.67346406, y: 0.0000005298191, z: -0.000000066227386}
+  m_Size: {x: 0.9157302, y: 0.12252914, z: 0.20817003}
+  m_Center: {x: 0.6734641, y: 0.0000005298191, z: -0.0018618464}
 --- !u!65 &5443514064005433867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.90645945, y: 0.12252914, z: 0.122529805}
+  m_Size: {x: 0.9064595, y: 0.12252914, z: 0.20444646}
   m_Center: {x: -0.66788465, y: 0.0000005298191, z: -0.000000066227386}
 --- !u!114 &8181573096071317257
 MonoBehaviour:
@@ -442,7 +442,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 1
+  Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
@@ -534,3 +534,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf32b33496fea8b48aad409a835ef06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sonidoGolpe: {fileID: 0}
