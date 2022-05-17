@@ -14,7 +14,7 @@ public class AvionGameLogic : MonoBehaviour
     private bool cambioDeFase = true; //Comprobación de que seguimos en la fase 1.5 (interludio)
     private bool fase2 = false; //Comprobación de que seguimos en la fase 2 (vuelo)
     
-    private bool noChocado = true; //Comprobación de que el avión no se ha chocado durante la fase de vuelo
+    public bool noChocado = true; //Comprobación de que el avión no se ha chocado durante la fase de vuelo
 
     public TextMeshProUGUI tiempo; //El texto que muestra el tiempo
     public Canvas textoTutorial; //Canvas donde se encuentra el texto de un tutorial
@@ -202,7 +202,7 @@ public class AvionGameLogic : MonoBehaviour
         distancia.text = ((int)player.transform.position.z).ToString();
     }
 
-    private void CheckColision() //Función que se llama desde ColisionAvioneta.cs para indicar que el avión se ha chocado
+    private void CheckColision() //Función que se llama desde ColisionAvioneta.cs para indicar que el avión se ha chocado (Deprecado)
     {
         noChocado = false;
     }
