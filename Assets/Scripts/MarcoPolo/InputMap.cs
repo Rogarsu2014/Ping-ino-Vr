@@ -62,12 +62,12 @@ public class InputMap : MonoBehaviour
 
     public void ReadyToShoot()
     {
-        print("eeee");
         readyToShoot = true;
     }
 
     public void disparo()
     {
+        pistola.GetComponentInParent<AudioSource>().Play();
         if(pistola.name == "Shotgun" && readyToShoot)
         {
             float maxSpread = 0.1f;
