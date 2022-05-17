@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ola
+  m_text: Puntos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -188,10 +188,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 72
   m_fontSizeBase: 200
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -282,7 +282,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108180642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -45}
+  m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 2108774474}
@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 518, y: 225}
+  m_AnchoredPosition: {x: 887, y: 184}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &129611983
@@ -9933,9 +9933,9 @@ MonoBehaviour:
   marginOfError: 0.1
   inputDelayInMiliseconds: 0
   fileLocation: funcionaporfa.mid
-  noteTime: 15
-  noteSpawnY: 30
-  noteTapY: -20
+  noteTime: 7
+  noteSpawnY: 20
+  noteTapY: -3
 --- !u!4 &255399740
 Transform:
   m_ObjectHideFlags: 0
@@ -9979,7 +9979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a1fa30e5c75948b55723f0fa44d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 9
+  noteRestriction: 7
   notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
@@ -9991,7 +9991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336643875}
   m_LocalRotation: {x: -0.0021285035, y: 4.8246955e-22, z: -2.5373736e-10, w: 0.99999774}
-  m_LocalPosition: {x: 19.74, y: 11.03, z: -0.23}
+  m_LocalPosition: {x: 19.74, y: 11.03, z: -0.3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10150,7 +10150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.63
+      value: 9.814
       objectReference: {fileID: 0}
     - target: {fileID: 3442778723160381984, guid: b1761720a03c6f74b853c67718d20c7e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15270,7 +15270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126071238}
   m_LocalRotation: {x: -0.0021285035, y: 4.8246955e-22, z: -2.5373736e-10, w: 0.99999774}
-  m_LocalPosition: {x: 19.74, y: 11.606, z: -0.63}
+  m_LocalPosition: {x: 19.74, y: 11.42, z: -0.63}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20375,7 +20375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474631011}
   m_LocalRotation: {x: -0.0021285035, y: 4.8246955e-22, z: -2.5373736e-10, w: 0.99999774}
-  m_LocalPosition: {x: 19.81, y: 11.616, z: -1.337}
+  m_LocalPosition: {x: 19.74, y: 11.42, z: -1.337}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20537,7 +20537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2a1fa30e5c75948b55723f0fa44d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 7
+  noteRestriction: 5
   notePrefab: {fileID: 4379047154679836989, guid: 48fdb50be258a0d4f8b8c93d7556419e, type: 3}
   notes: []
   timeStamps: []
@@ -20549,7 +20549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555551920}
   m_LocalRotation: {x: -0.0021285035, y: 4.8246955e-22, z: -2.5373736e-10, w: 0.99999774}
-  m_LocalPosition: {x: 19.74, y: 11.02, z: -1.737}
+  m_LocalPosition: {x: 19.74, y: 11.03, z: -1.46}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
