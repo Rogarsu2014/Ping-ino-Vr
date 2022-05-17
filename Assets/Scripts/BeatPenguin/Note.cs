@@ -47,4 +47,13 @@ public class Note : MonoBehaviour
 
 
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "LeftHand Controller" || collision.gameObject.name == "RightHand Controller")
+        {
+            Hit();
+        }
+
+    }
+
 }

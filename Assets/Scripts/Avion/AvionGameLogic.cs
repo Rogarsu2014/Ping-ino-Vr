@@ -230,8 +230,14 @@ public class AvionGameLogic : MonoBehaviour
         int puntuacion1;
         puntuacion1 = int.Parse(distancia.text);
 
+        if (!File.Exists(Application.dataPath + "/MaxScoreAvion.txt")) //Si no existe el txt lo crea
+        {
+            StreamWriter write = new StreamWriter(Application.dataPath + "/MaxScoreAvion.txt", false);
+            write.WriteLine("0");
+            write.Close();
+        }
         //Leemos desde un txt la puntuación máxima mediante un StreamReader
-        StreamReader read = new StreamReader("MaxScoreAvion.txt");
+        StreamReader read = new StreamReader(Application.dataPath + "/MaxScoreAvion.txt");
         int maxScore = int.Parse(read.ReadLine());
         read.Close();
 
@@ -249,7 +255,7 @@ public class AvionGameLogic : MonoBehaviour
                 newRecord.gameObject.SetActive(true); //Activamos el texto que pone "nuevo record"
 
                 //Sobreescribimos la puntuación en el txt mediante un StreamWriter
-                StreamWriter write = new StreamWriter("MaxScoreAvion.txt", false); 
+                StreamWriter write = new StreamWriter(Application.dataPath + "/MaxScoreAvion.txt", false); 
                 write.WriteLine(puntuacion1);
                 write.Close();
             }

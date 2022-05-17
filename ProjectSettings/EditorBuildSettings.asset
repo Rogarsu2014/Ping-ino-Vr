@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PinguinosKaratekas.unity
     guid: 298b46b936ab1cb44971ffaa32028c86
+  - enabled: 1
+    path: Assets/Scenes/BeatPenguin.unity
+    guid: 01afd0104a74b76409d8bf5620a58304
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 86a6526a382ce3348b0968357d8e9aa8, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 38991236af797c54ba68916b3cd324eb, type: 2}
