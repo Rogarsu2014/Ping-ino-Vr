@@ -1034,7 +1034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043c818522e39b646b3de074c21dbb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntos: 0
   textoPuntuacion: {fileID: 1701874666}
 --- !u!4 &1082197931
 Transform:
@@ -1255,6 +1254,7 @@ MonoBehaviour:
   canvasHeadsUp: {fileID: 1927636687}
   canvasCreditos: {fileID: 1804020102}
   jugador: {fileID: 904720976}
+  textoCreditos: {fileID: 1613732583}
 --- !u!4 &1324924115
 Transform:
   m_ObjectHideFlags: 0

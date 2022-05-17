@@ -14,6 +14,7 @@ public class GameFlow : MonoBehaviour
     public GameObject jugador;
 
     float tiempoCreditos = 10;
+    public TextMeshProUGUI textoCreditos;
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +37,11 @@ public class GameFlow : MonoBehaviour
     {
         if (canvasCreditos.gameObject.activeSelf)
         {
-            TextMeshProUGUI textoCreditos = new TextMeshProUGUI();
-            //TextMeshProUGUI puntos = canvasHeadsUp.transform.Find("Puntuacion").gameObject.GetComponent<TextMeshPro>;
-            //textoCreditos.text = string.Format("Tu Puntuacion: " + ;
+            //TextMeshProUGUI textoCreditos = new TextMeshProUGUI();
+            //puntos.text = canvasHeadsUp.transform.Find("Puntuacion").gameObject.GetComponent<>;
+            //textoCreditos.text = string.Format("Tu Puntuacion: " + );
+            int puntosFinales = puntuacion.GetPuntos();
+            textoCreditos.text = string.Format("Tu puntuacion: {0:0}", puntosFinales);
 
             if (tiempoCreditos > 0)
             {

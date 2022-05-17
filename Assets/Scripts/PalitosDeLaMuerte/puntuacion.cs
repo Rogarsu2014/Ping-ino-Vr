@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class puntuacion : MonoBehaviour
 {
-    public int puntos = 0;
+    public static int puntos = 0;
     public TextMeshProUGUI textoPuntuacion;
 
-    public void sumaPuntos ()
+    void Start()
+    {
+        puntos = 0;
+    }
+
+        public void sumaPuntos ()
     {
         puntos += 10;
 
@@ -25,5 +30,10 @@ public class puntuacion : MonoBehaviour
     void muestraPuntuacion(int puntos)
     {
         textoPuntuacion.text = string.Format("{0:0}", puntos);
+    }
+
+    public static int GetPuntos()
+    {
+        return puntos;
     }
 }
