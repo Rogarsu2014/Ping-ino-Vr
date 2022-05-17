@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class temporizador : MonoBehaviour
 {
+
     public float tiempo = 120;
     public TextMeshProUGUI textoTiempo;
 
     public bool inGame = false;
+
+    public GameObject jugador;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +27,8 @@ public class temporizador : MonoBehaviour
             {
                 inGame = false;
                 tiempo = 0;
+
+                GameFlow.finJuego(jugador);
             }
 
             muestraTiempo(tiempo);
