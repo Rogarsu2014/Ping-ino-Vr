@@ -37,8 +37,8 @@ public class GameFlow : MonoBehaviour
         if (canvasCreditos.gameObject.activeSelf)
         {
             TextMeshProUGUI textoCreditos = new TextMeshProUGUI();
-            //TextMeshProUGUI puntos = canvasHeadsUp.transform.GetChild(1);
-            textoCreditos.text = string.Format("Tu Puntuacion: " + canvasHeadsUp.transform.GetChild(1));
+            //TextMeshProUGUI puntos = canvasHeadsUp.transform.Find("Puntuacion").gameObject.GetComponent<TextMeshPro>;
+            //textoCreditos.text = string.Format("Tu Puntuacion: " + ;
 
             if (tiempoCreditos > 0)
             {
